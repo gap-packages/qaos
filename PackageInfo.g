@@ -21,14 +21,14 @@ Persons := [
       LastName      := "Freundt",
       FirstNames    := "Sebastian",
       IsAuthor      := true,
-      IsMaintainer  := true,
+      IsMaintainer  := false,
       Email         := "freundt@math.tu-berlin.de",
       WWWHome       := "http://www.math.tu-berlin.de/~freundt",
       PostalAddress := Concatenation( [
-            "Fakult\"at II - Institut f\"ur Mathematik\n",
+            "Fakultät II - Institut für Mathematik\n",
             "TU Berlin\n",
-            "Stra{\ss}e des 17. Juni 136\n",
-	    "D-10623 Berlin\n",
+            "Straße des 17. Juni 136\n",
+            "D-10623 Berlin\n",
             "Germany" ] ),
       Place         := "Berlin",
       Institution   := "TU Berlin"),
@@ -37,25 +37,35 @@ Persons := [
       LastName      := "Pauli",
       FirstNames    := "Sebastian",
       IsAuthor      := true,
-      IsMaintainer  := true,
+      IsMaintainer  := false,
       Email         := "pauli@math.tu-berlin.de",
       WWWHome       := "http://www.math.tu-berlin.de/~pauli",
       PostalAddress := Concatenation( [
-            "Fakult\"at II - Institut f\"ur Mathematik\n",
+            "Fakultät II - Institut für Mathematik\n",
             "TU Berlin\n",
-            "Stra{\ss}e des 17. Juni 136\n",
-	    "D-10623 Berlin\n",
+            "Straße des 17. Juni 136\n",
+            "D-10623 Berlin\n",
             "Germany" ] ),
       Place         := "Berlin",
       Institution   := "TU Berlin"),
-
+  rec(
+       IsAuthor := false,
+       IsMaintainer := true,
+       FirstNames := "Markus",
+       LastName := "Pfeiffer",
+       WWWHome := "http://www.morphism.de/~markusp/",
+       Email := "markus.pfeiffer@st-andrews.ac.uk",
+       PostalAddress := "School of Computer ScienceNorth HaughSt AndrewsFifeKY16 9SX",
+       Place := "St Andrews",
+       Institution := "University of St Andrews",
+  ),
 ],
 
 ##  Status information. Currently the following cases are recognized:
 ##    "accepted"      for successfully refereed packages
-##    "deposited"     for packages for which the GAP developers agreed 
+##    "deposited"     for packages for which the GAP developers agreed
 ##                    to distribute them with the core GAP system
-##    "dev"           for development versions of packages 
+##    "dev"           for development versions of packages
 ##    "other"         for all other packages
 ##
 Status := "deposited",
@@ -68,7 +78,7 @@ AbstractHTML :=
 
 PackageWWWHome := "http://qaos.math.tu-berlin.de/qaos/qaos.scm",
 
-PackageDoc := rec(          
+PackageDoc := rec(
   BookName  := "QaoS",
   ArchiveURLSubset := ["doc"],
   HTMLStart := "doc/qaos.html",
@@ -80,10 +90,10 @@ PackageDoc := rec(
 Dependencies := rec(
   GAP := ">= 4.3",
   NeededOtherPackages := [],
-  SuggestedOtherPackages := [], 
-  ExternalConditions := ["needs cURL (http://curl.haxx.se)"] ), 
+  SuggestedOtherPackages := [],
+  ExternalConditions := ["needs cURL (http://curl.haxx.se)"] ),
 
-AvailabilityTest := ReturnTrue,             
+AvailabilityTest := ReturnTrue,
 Autoload := false,
 TestFile := "tst/testall.g",
 Keywords := ["algebraic structure theory", "database"]
