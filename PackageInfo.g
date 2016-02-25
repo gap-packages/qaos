@@ -1,4 +1,3 @@
-## Hey Emacs, this is -*- kash -*- code!
 #############################################################################
 ##
 ##  PackageInfo.g  QaoS - Interfacing the QaoS database     Sebastian Freundt
@@ -11,12 +10,20 @@ Subtitle := "Interfacing the QaoS database from GAP",
 Version := ".",
 Date := "",
 
-ArchiveURL := "http://www.math.tu-berlin.de/~kant/download/gap/qaos-.",
+SourceRepository := rec(
+                         Type := "git",
+                         URL := Concatenation("https://github.com/gap-packages/", ~.PackageName )
+                        ),
+IssueTrackerURL := Concatenation( ~.SourceRepository.URL, "/issues" ),
+PackageWWWHome  := Concatenation( "https://gap-packages.github.io/", ~.PackageName ),
+README_URL      := Concatenation( ~.PackageWWWHome, "/README" ),
+PackageInfoURL  := Concatenation( ~.PackageWWWHome, "/PackageInfo.g" ),
+ArchiveURL      := Concatenation( ~.SourceRepository.URL,
+                                 "/releases/download/v", ~.Version,
+                                 "/", ~.PackageName ,"-", ~.Version ),
 ArchiveFormats := ".tar.bz2",
 
-
 Persons := [
-
   rec(
       LastName      := "Freundt",
       FirstNames    := "Sebastian",
@@ -55,7 +62,12 @@ Persons := [
        LastName := "Pfeiffer",
        WWWHome := "http://www.morphism.de/~markusp/",
        Email := "markus.pfeiffer@st-andrews.ac.uk",
-       PostalAddress := "School of Computer ScienceNorth HaughSt AndrewsFifeKY16 9SX",
+       PostalAddress := Concatenation( [
+                                         "School of Computer Science\n",
+                                         "North HaughSt Andrews\n",
+                                         "Fife\n",
+                                         "KY16 9SX\n",
+                                         "United Kingdom" ] ),
        Place := "St Andrews",
        Institution := "University of St Andrews",
   ),
@@ -70,13 +82,8 @@ Persons := [
 ##
 Status := "deposited",
 
-README_URL := "http://www.math.tu-berlin.de/~kant/download/gap/qaos.README",
-PackageInfoURL := "http://www.math.tu-berlin.de/~kant/download/gap/qaos.PackageInfo.g",
-
 AbstractHTML :=
   "The <span class=\"pkgname\">QaoS</span> package provides gateway functions to access the QaoS databases of algebraic objects in Berlin. <span class=\"pkgname\">QaoS</span> is primarily intended to query for transitive groups or algebraic number fields and turn retrieved results into GAP objects for further computing.",
-
-PackageWWWHome := "http://qaos.math.tu-berlin.de/qaos/qaos.scm",
 
 PackageDoc := rec(
   BookName  := "QaoS",
