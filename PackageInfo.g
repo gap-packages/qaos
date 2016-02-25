@@ -7,7 +7,7 @@ SetPackageInfo( rec(
 
 PackageName := "qaos",
 Subtitle := "Interfacing the QaoS database from GAP",
-Version := "1.1",
+Version := "1.2",
 Date := "25/02/2016",
 
 SourceRepository := rec(
