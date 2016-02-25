@@ -54,18 +54,18 @@ xml: qaos.xml
 	$(DVIPDFM) -p $(PAPERTYPE) -o $@ $<
 
 .texi.html :
-	sed -e '/@iflatex/,/@end iflatex/d' $< > qaostmp.texi
+	gsed -e '/@iflatex/,/@end iflatex/d' $< > qaostmp.texi
 	$(TEXI2HTML) -I $(srcdir) qaostmp.texi
 	cp qaostmp.html $*.html
 	$(RM) qaostmp.*
 
 .texi.xml :
-	sed -e '/@iflatex/,/@end iflatex/d' $< > qaostmp.texi
+	gsed -e '/@iflatex/,/@end iflatex/d' $< > qaostmp.texi
 	$(MAKEINFO) --xml -I $(srcdir) qaostmp.texi
 	$(RM) qaostmp.*
 
 xx%.tex:
-	sed xx$* \
+	gsed xx$* \
 	    -e "s/@chapter \(.*\)/\n\n\\\\Chapter{\\1}/" \
 	    -e "s/@section \(.*\)/\n\n\\\\Section{\\1}/" \
 	    -e "s/@defun \([^ ]*\) \(.*\)/\\\\> \\1 ( \\2 ) F/" \
@@ -92,7 +92,7 @@ xx%.tex:
 	$(RM) xx$*
 
 .texi.ltx: .NOTPARALLEL
-	csplit $*.texi "/^@chapter/" "{*}"
+	gcsplit -k $*.texi "/^@chapter/" {*}
 	find . -name "xx*" -exec echo {}.tex \; | xargs $(MAKE)
 	$(RM) xx*
 	$(RM) $*.ltx
