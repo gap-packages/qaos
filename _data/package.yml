@@ -1,5 +1,5 @@
 name: qaos
-version: 1.1
+version: 1.2
 date: 25/02/2016
 description: Interfacing the QaoS database from GAP
 
@@ -21,7 +21,9 @@ packageinfo: https://gap-packages.github.io/qaos/PackageInfo.g
 
 downloads:
     - name: .tar.gz
-      url: https://github.com/gap-packages/qaos/releases/download/v1.1/qaos-1.1.tar.gz
+      url: https://github.com/gap-packages/qaos/releases/download/v1.2/qaos-1.2.tar.gz
+    - name: .tar.bz2
+      url: https://github.com/gap-packages/qaos/releases/download/v1.2/qaos-1.2.tar.bz2
 
 abstract: The <span class="pkgname">QaoS</span> package provides gateway functions to access the QaoS databases of algebraic objects in Berlin. <span class="pkgname">QaoS</span> is primarily intended to query for transitive groups or algebraic number fields and turn retrieved results into GAP objects for further computing.
 
