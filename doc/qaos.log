@@ -1,10 +1,12 @@
-This is pdfeTeXk, Version 3.141592-1.20a-2.2 (Web2C 7.5.3) (format=etex 2005.9.26)  1 FEB 2008 16:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (Web2C 2015) (preloaded format=etex 2015.11.23)  25 FEB 2016 13:57
 entering extended mode
+ restricted \write18 enabled.
  file:line:error style messages enabled.
-**/net/kant/KASH3/qaos.main.1.0/contrib/gap/qaos/doc/qaos.texi
-(/net/kant/KASH3/qaos.main.1.0/contrib/gap/qaos/doc/qaos.texi
-(/homes/algebra/freundt/usr/local64/cusTeX/share/texmf/tex/texinfo/texinfo.tex
-Loading texinfo [version 2004-11-25.16]: Basics,
+ %&-line parsing enabled.
+**\catcode126=12 \def\normaltilde{~}\catcode126=13 \let~\normaltilde  \input ./
+qaos.texi
+(./qaos.texi (/usr/local/share/texmf-dist/tex/texinfo/texinfo.tex
+Loading texinfo [version 2015-05-06.11]:
 \bindingoffset=\dimen16
 \normaloffset=\dimen17
 \pagewidth=\dimen18
@@ -23,115 +25,131 @@ Loading texinfo [version 2004-11-25.16]: Basics,
 \mil=\dimen25
 \exdentamount=\skip18
 \inmarginspacing=\skip19
+\centerpenalty=\count27
  pdf,
-\tempnum=\count27
-\lnkcount=\count28
+\tempnum=\count28
+\lnkcount=\count29
 \filename=\toks15
-\filenamelength=\count29
-\pgn=\count30
+\filenamelength=\count30
+\pgn=\count31
 \toksA=\toks16
 \toksB=\toks17
 \toksC=\toks18
 \toksD=\toks19
 \boxA=\box19
-\countA=\count31
+\countA=\count32
+\nopdfimagehelp=\toks20
  fonts,
 \sffam=\fam8
 \textleading=\dimen26
-\fontdepth=\count32
- page headings,
+ markup,
+\fontdepth=\count33
+ glyphs,
+\errorbox=\box20
+
+page headings,
 \titlepagetopglue=\skip20
 \titlepagebottomglue=\skip21
-\evenheadline=\toks20
-\oddheadline=\toks21
-\evenfootline=\toks22
-\oddfootline=\toks23
-
-tables,
+\evenheadline=\toks21
+\oddheadline=\toks22
+\evenfootline=\toks23
+\oddfootline=\toks24
+ tables,
 \tableindent=\dimen27
 \itemindent=\dimen28
 \itemmargin=\dimen29
 \itemmax=\dimen30
-\itemno=\count33
+\itemno=\count34
 \multitableparskip=\skip22
 \multitableparindent=\skip23
 \multitablecolspace=\dimen31
 \multitablelinespace=\skip24
-\colcount=\count34
-\everytab=\toks24
+\colcount=\count35
+\everytab=\toks25
  conditionals,
-\doignorecount=\count35
+\doignorecount=\count36
  indexing,
-\secondaryindent=\skip25
-\partialpage=\box20
+\whatsitskip=\skip25
+\whatsitpenalty=\count37
+\secondaryindent=\skip26
+\partialpage=\box21
 \doublecolumnhsize=\dimen32
  sectioning,
-\unnumberedno=\count36
-\chapno=\count37
-\secno=\count38
-\subsecno=\count39
-\subsubsecno=\count40
-\appendixno=\count41
-\absseclevel=\count42
-\secbase=\count43
-\chapheadingskip=\skip26
-\secheadingskip=\skip27
-\subsecheadingskip=\skip28
+\unnumberedno=\count38
+\chapno=\count39
+\secno=\count40
+\subsecno=\count41
+\subsubsecno=\count42
+\appendixno=\count43
+\absseclevel=\count44
+\secbase=\count45
+\chapheadingskip=\skip27
+\secheadingskip=\skip28
+\subsecheadingskip=\skip29
  toc,
 \tocfile=\write0
-\contentsrightmargin=\skip29
-\savepageno=\count44
-\lastnegativepageno=\count45
+\contentsrightmargin=\skip30
+\savepageno=\count46
+\lastnegativepageno=\count47
 \tocindent=\dimen33
  environments,
-\errorbox=\box21
-\lispnarrowing=\skip30
-\envskipamount=\skip31
+\lispnarrowing=\skip31
+\envskipamount=\skip32
 \circthick=\dimen34
 \cartouter=\dimen35
 \cartinner=\dimen36
-\normbskip=\skip32
-\normpskip=\skip33
-\normlskip=\skip34
-\lskip=\skip35
-\rskip=\skip36
-\tabw=\dimen37
- defuns,
-\defbodyindent=\skip37
-\defargsindent=\skip38
-\deflastargmargin=\skip39
-\parencount=\count46
-\brackcount=\count47
+\normbskip=\skip33
+\normpskip=\skip34
+\normlskip=\skip35
+\lskip=\skip36
+\rskip=\skip37
+\nonfillparindent=\dimen37
+\tabw=\dimen38
+\verbbox=\box22
+
+defuns,
+\defbodyindent=\skip38
+\defargsindent=\skip39
+\deflastargmargin=\skip40
+\defunpenalty=\count48
+\parencount=\count49
+\brackcount=\count50
  macros,
-\paramno=\count48
-\macname=\toks25
-
-cross references,
+\paramno=\count51
+\macname=\toks26
+ cross references,
 \auxfile=\write1
-\savesfregister=\count49
+\savesfregister=\count52
+\toprefbox=\box23
+\printedrefnamebox=\box24
+\infofilenamebox=\box25
+\printedmanualbox=\box26
  insertions,
-\footnoteno=\count50
-\SAVEfootins=\box22
-\SAVEmargin=\box23
+\footnoteno=\count53
+\SAVEfootins=\box27
+\SAVEmargin=\box28
 
-(/homes/algebra/freundt/texmf/tex/generic/dvips/epsf.tex
+(/usr/local/share/texmf-dist/tex/generic/epsf/epsf.tex
+This is `epsf.tex' v2.7.4 <14 February 2011>
 \epsffilein=\read1
-\epsfframemargin=\dimen38
-\epsfframethickness=\dimen39
-\epsfrsize=\dimen40
-\epsftmp=\dimen41
-\epsftsize=\dimen42
-\epsfxsize=\dimen43
-\epsfysize=\dimen44
-\pspoints=\dimen45
-\epsfnoopenhelp=\toks26
+\epsfframemargin=\dimen39
+\epsfframethickness=\dimen40
+\epsfrsize=\dimen41
+\epsftmp=\dimen42
+\epsftsize=\dimen43
+\epsfxsize=\dimen44
+\epsfysize=\dimen45
+\pspoints=\dimen46
 )
 \noepsfhelp=\toks27
  localization,
 \nolanghelp=\toks28
-\defaultparindent=\dimen46
-
-and turning on texinfo input format.) (./qaos.aux)
+\countUTFx=\count54
+\countUTFy=\count55
+\countUTFz=\count56
+ formatting,
+\defaultparindent=\dimen47
+ and turning on texinfo input format.) (./qaos.aux)
 \openout1 = `qaos.aux'.
 
 @cpindfile=@write2
@@ -140,7 +158,8 @@ and turning on texinfo input format.) (./qaos.aux)
 @tpindfile=@write5
 @kyindfile=@write6
 @pgindfile=@write7
- [1
+
+[1
 \openout2 = `qaos.cp'.
 
 \openout3 = `qaos.fn'.
@@ -153,12 +172,11 @@ and turning on texinfo input format.) (./qaos.aux)
 
 \openout7 = `qaos.pg'.
 
-] [2] (./qaos.toc)
-[-1] [-2] (./qaos.toc) [-3] [-4] (QaoS)
+] [2] (./qaos.toc) [-1] [-2] (./qaos.toc) [-3] [-4] (QaoS)
 \openout0 = `qaos.toc'.
 
- Chapter 1 [1] [2] Chapter 2 [3]
-[4] Chapter 3 [5] [6] [7] [8]
+ Chapter 1 [1]
+[2] Chapter 2 [3] [4] Chapter 3 [5] [6] [7] [8]
 Overfull \hbox (26.43913pt too wide) in paragraph at lines 380--380
  []@texttt Note: You must have `curl' (see http://curl.haxx.se) installed and p
 roperly[] 
@@ -381,15 +399,12 @@ Overfull \hbox (66.67995pt too wide) in paragraph at lines 480--480
 
 Chapter 4 [11] [12] (./qaos.fns) [13] [14] ) 
 Here is how much of TeX's memory you used:
- 1448 strings out of 259501
- 15874 string characters out of 2211861
- 35886 words of memory out of 1000000
- 2540 multiletter control sequences out of 10000+50000
- 32127 words of font info for 112 fonts, out of 500000 for 2000
- 51 hyphenation exceptions out of 10000
- 13i,6n,16p,283b,420s stack positions out of 30000i,500n,6000p,300000b,40000s
- 0 PDF objects out of 300000
- 0 named destinations out of 131072
- 1 words of extra memory for PDF output out of 65536
+ 2619 strings out of 494681
+ 26126 string characters out of 6152808
+ 62753 words of memory out of 5000000
+ 4203 multiletter control sequences out of 15000+600000
+ 32127 words of font info for 112 fonts, out of 8000000 for 9000
+ 1457 hyphenation exceptions out of 8191
+ 14i,6n,16p,355b,762s stack positions out of 5000i,2500n,10000p,300000b,80000s
 
-Output written on qaos.dvi (20 pages, 26540 bytes).
+Output written on qaos.dvi (20 pages, 27188 bytes).

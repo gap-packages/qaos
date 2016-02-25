@@ -1,13 +1,11 @@
-This is qaos.info, produced by makeinfo version 4.8 from qaos.texi.
+This is qaos.info, produced by makeinfo version 6.0 from qaos.texi.
 
-INFO-DIR-SECTION
+This file documents the GAP Interface to QaoS databases
+
+Copyright (C) 2005 Sebastian Freundt and QaoS developers
 START-INFO-DIR-ENTRY
 * QaoS: (qaos).		Reference Manual for the QaoS GAP package
 END-INFO-DIR-ENTRY
-
-   This file documents the GAP Interface to QaoS databases
-
-   Copyright (C) 2005 Sebastian Freundt and QaoS developers
 
 
 File: qaos.info,  Node: Top,  Next: Concept,  Up: (dir)
@@ -24,9 +22,9 @@ information about QaoS, we refer to the manual of QaoS.
 * Menu:
 
 * Concept::
-* Installation::
-* User Functions::
-* Index::
+* Installation::         
+* User Functions::               
+* Index::                 
 
 
 File: qaos.info,  Node: Concept,  Next: Installation,  Prev: Top,  Up: Top
@@ -39,7 +37,7 @@ Objects in Berlin.  The database frontend is able to output internal
 data in a GAP-conform format.  This GAP package both triggers the
 database and retrieves the data.  Beyond that, it is also able to
 retransform received information into GAP objects which then could be
-used in the `normal way'.
+used in the 'normal way'.
 
 QaoS itself is a backend/frontend combination of an SQL database which
 is designed to grant public anonymous access via HTTP for reading
@@ -57,7 +55,7 @@ distribution.  We like to thank Alexander Hulpke for his permission to
 offer transitive group data in our databases.
 
    * Alexander Hulpke, Constructing Transitive Permutation Groups; J.
-     Symb. Comp. 39 (2005), 1-30.
+     Symb.  Comp.  39 (2005), 1-30.
 
 
 File: qaos.info,  Node: Installation,  Next: User Functions,  Prev: Concept,  Up: Top
@@ -68,24 +66,24 @@ File: qaos.info,  Node: Installation,  Next: User Functions,  Prev: Concept,  Up
 Installation of the package is fairly easy.  Fetch the latest qaos
 package at
 
-`http://www.math.tu-berlin.de/~kant/download/gap/qaos.tar.bz2'
+<http://www.math.tu-berlin.de/~kant/download/gap/qaos.tar.bz2>
 
 or via FTP at
 
-`ftp://ftp.math.tu-berlin.de/pub/algebra/Kant/contrib/gap/'
+<ftp://ftp.math.tu-berlin.de/pub/algebra/Kant/contrib/gap/>
 
 2.1 Installation of the GAP package
 ===================================
 
-If you have permission to add files to the installation of GAP 4 on
-your system you may install the qaos package into the `pkg/'
-subdirectory of the GAP installation tree.
+If you have permission to add files to the installation of GAP 4 on your
+system you may install the qaos package into the 'pkg/' subdirectory of
+the GAP installation tree.
 
      shell> cd /path/to/GAP4/installation/tree/
      shell> cd pkg/
      shell> tar xjf /path/to/qaos.tar.bz2
 
-This yields another subdirectory called `qaos/' with all the necessary
+This yields another subdirectory called 'qaos/' with all the necessary
 files.
 
 If you do not have the permission to install the package globally just
@@ -97,7 +95,7 @@ install it to some private area, for example your home directory.
      shell> cd mygap/pkg/
      shell> tar xjf /path/to/qaos.tar.bz2
 
-Now whenever you start GAP, be sure to pass the `mygap/' directory to
+Now whenever you start GAP, be sure to pass the 'mygap/' directory to
 the package search path of GAP.
 
      shell> gap -l ";$HOME/mygap"
@@ -105,7 +103,7 @@ the package search path of GAP.
 2.2 Installation of cURL
 ========================
 
-Go to `http://curl.haxx.se' and fetch the latest release of cURL for
+Go to <http://curl.haxx.se> and fetch the latest release of cURL for
 your system.  Install it.  Refer to cURL installation instructions if
 necessary.
 
@@ -148,36 +146,28 @@ QAOSTRANSITIVEGROUP and QAOSNUMBERFIELD.
      components:
         * ACTION (string)
              * determine an action to perform on QUERY
-
              * default value: "query"
-
              * possible values: "query", "count"
 
         * COLGROUPS (list of strings)
-             * determine which result groups should be returned;
-               results of QaoS are   usually grouped by a so-called
-               `column group'.  In the web interface these   column
-               groups are choosable by checking the corresponding name
-               under the text   field for the query.
-
+             * determine which result groups should be returned; results
+               of QaoS are usually grouped by a so-called 'column
+               group'.  In the web interface these column groups are
+               choosable by checking the corresponding name under the
+               text field for the query.
              * default value: ["size","props","perm-struct"]
-
-             * possible values:   combinations of "size", "props",
+             * possible values: combinations of "size", "props",
                "perm-struct", "fp-struct"
 
         * LIMIT (integer/string)
              * determine how many results are retrieved (maximally)
-
              * default value: QAOSDEFAULTLIMIT
-
              * possible values: any positive integer or "all"
 
         * OFFSET (integer/string)
              * determine an offset on the set of results, this may be
-               used to   sequentially retrieve blocks of results.
-
+               used to sequentially retrieve blocks of results.
              * default value: 0
-
              * possible values: any non-negative integer
 
  -- Function: QaosNumberField query [optarg]
@@ -188,36 +178,28 @@ QAOSTRANSITIVEGROUP and QAOSNUMBERFIELD.
      components:
         * ACTION (string)
              * determine an action to perform on QUERY
-
              * default value: "query"
-
              * possible values: "query", "count"
 
         * COLGROUPS (list of strings)
-             * determine which result groups should be returned;
-               results of QaoS are   usually grouped by a so-called
-               `column group'.  In the web interface these   column
-               groups are choosable by checking the corresponding name
-               under the text   field for the query.
-
+             * determine which result groups should be returned; results
+               of QaoS are usually grouped by a so-called 'column
+               group'.  In the web interface these column groups are
+               choosable by checking the corresponding name under the
+               text field for the query.
              * default value: ["size","struct","clsgroup","galgroup"]
-
-             * possible values:   combinations of "size", "struct",
+             * possible values: combinations of "size", "struct",
                "clsgroup", "galgroup", "galprops"
 
         * LIMIT (integer/string)
              * determine how many results are retrieved (maximally)
-
              * default value: QAOSDEFAULTLIMIT
-
              * possible values: any positive integer or "all"
 
         * OFFSET (integer/string)
              * determine an offset on the set of results, this may be
-               used to   sequentially retrieve blocks of results.
-
+               used to sequentially retrieve blocks of results.
              * default value: 0
-
              * possible values: any non-negative integer
 
  -- Variable: QaosDefaultLimit Integer/String
@@ -227,15 +209,15 @@ QAOSTRANSITIVEGROUP and QAOSNUMBERFIELD.
 
      The default value is 25.
 
-     The value can be any positive integer or the string "all", in
-     which case no limit is set and all results are returned.
+     The value can be any positive integer or the string "all", in which
+     case no limit is set and all results are returned.
 
      _CAUTION_: Setting this variable to "all" may result in exhaustive
      use of memory, network bandwidth, and time.  Therefore, always
      consider to perform the count action on a query before loading all
      of the results.  The database of number fields contains more than
      1.35 million number field objects.  Downloading them all means
-     retrieving a string of approx. 1.8 GB length!!!
+     retrieving a string of approx.  1.8 GB length!!!
 
 The following examples show their usage:
 
@@ -317,8 +299,8 @@ QAOSRESULT which displays a list of retrieved objects.
      Return the (non-negative) integer of a count query (see
      ACTION-component in optarg record).
 
-Let us examine the groups behind a query for degree 8 abelian
-transitive groups.
+Let us examine the groups behind a query for degree 8 abelian transitive
+groups.
      gap> Q:=QaosTransitiveGroup("d8 abelian");
      #I Retrieved 3 Transitive Groups.
      #I (C) 2004-2005 QaoS developers <kantdb@math.tu-berlin.de>,
@@ -394,20 +376,26 @@ File: qaos.info,  Node: Index,  Prev: User Functions,  Up: Top
  [index ]
 * Menu:
 
-* AsField:                               User Functions.      (line 222)
-* AsGroup:                               User Functions.      (line 210)
-* QaosDefaultLimit:                      User Functions.      (line  95)
-* QaosNumberField:                       User Functions.      (line  55)
-* QaosResult:                            User Functions.      (line 183)
-* QaosTransitiveGroup:                   User Functions.      (line  15)
+* AsField:                               User Functions.      (line 205)
+* AsField <1>:                           User Functions.      (line 210)
+* AsGroup:                               User Functions.      (line 193)
+* AsGroup <1>:                           User Functions.      (line 198)
+* QaosDefaultLimit:                      User Functions.      (line  78)
+* QaosDefaultLimit <1>:                  User Functions.      (line  94)
+* QaosNumberField:                       User Functions.      (line  46)
+* QaosResult:                            User Functions.      (line 166)
+* QaosResult <1>:                        User Functions.      (line 170)
+* QaosResult <2>:                        User Functions.      (line 171)
+* QaosResult <3>:                        User Functions.      (line 174)
+* QaosTransitiveGroup:                   User Functions.      (line  14)
 
 
 
 Tag Table:
-Node: Top307
-Node: Concept700
-Node: Installation1946
-Node: User Functions3892
-Node: Index14561
+Node: Top283
+Node: Concept717
+Node: Installation1965
+Node: User Functions3911
+Node: Index14545
 
 End Tag Table
