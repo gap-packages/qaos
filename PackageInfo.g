@@ -1,102 +1,106 @@
+## Hey Emacs, this is -*- kash -*- code!
 #############################################################################
-##  
-##  Demo PackageInfo.g for the GitHubPagesForGAP
+##
+##  PackageInfo.g  QaoS - Interfacing the QaoS database     Sebastian Freundt
 ##
 
 SetPackageInfo( rec(
 
-PackageName := "GitHubPagesForGAP",
+PackageName := "qaos",
+Subtitle := "Interfacing the QaoS database from GAP",
+Version := ".",
+Date := "",
 
-Subtitle := "A GitHubPages generator for GAP packages",
-Version := "0.1",
-Date := "21/03/2014", # dd/mm/yyyy format
+ArchiveURL := "http://www.math.tu-berlin.de/~kant/download/gap/qaos-.",
+ArchiveFormats := ".tar.bz2",
+
 
 Persons := [
-  rec(
-    LastName      := "Horn",
-    FirstNames    := "Max",
-    IsAuthor      := true,
-    IsMaintainer  := true,
-    Email         := "max.horn@math.uni-giessen.de",
-    WWWHome       := "http://www.quendi.de/math",
-    PostalAddress := Concatenation(
-                       "AG Algebra\n",
-                       "Mathematisches Institut\n",
-                       "Justus-Liebig-Universit‰t Gieﬂen\n",
-                       "Arndtstraﬂe 2\n",
-                       "35392 Gieﬂen\n",
-                       "Germany" ),
-    Place         := "Gieﬂen",
-    Institution   := "Justus-Liebig-Universit‰t Gieﬂen"
-  ),
 
   rec(
-    LastName      := "Thor",
-    FirstNames    := "A. U.",
-    IsAuthor      := true,
-    IsMaintainer  := false,
-    #Email         := "author@example.com",
-  ),
+      LastName      := "Freundt",
+      FirstNames    := "Sebastian",
+      IsAuthor      := true,
+      IsMaintainer  := false,
+      Email         := "freundt@math.tu-berlin.de",
+      WWWHome       := "http://www.math.tu-berlin.de/~freundt",
+      PostalAddress := Concatenation( [
+            "Fakult√§t II - Institut f√ºr Mathematik\n",
+            "TU Berlin\n",
+            "Stra√üe des 17. Juni 136\n",
+            "D-10623 Berlin\n",
+            "Germany" ] ),
+      Place         := "Berlin",
+      Institution   := "TU Berlin"),
 
   rec(
-    LastName      := "Itor",
-    FirstNames    := "Jan",
-    IsAuthor      := false,
-    IsMaintainer  := true,
-    #Email         := "janitor@example.com",
+      LastName      := "Pauli",
+      FirstNames    := "Sebastian",
+      IsAuthor      := true,
+      IsMaintainer  := false,
+      Email         := "pauli@math.tu-berlin.de",
+      WWWHome       := "http://www.math.tu-berlin.de/~pauli",
+      PostalAddress := Concatenation( [
+            "Fakult√§t II - Institut f√ºr Mathematik\n",
+            "TU Berlin\n",
+            "Stra√üe des 17. Juni 136\n",
+            "D-10623 Berlin\n",
+            "Germany" ] ),
+      Place         := "Berlin",
+      Institution   := "TU Berlin"),
+  rec(
+       IsAuthor := false,
+       IsMaintainer := true,
+       FirstNames := "Markus",
+       LastName := "Pfeiffer",
+       WWWHome := "http://www.morphism.de/~markusp/",
+       Email := "markus.pfeiffer@st-andrews.ac.uk",
+       PostalAddress := "School of Computer ScienceNorth HaughSt AndrewsFifeKY16 9SX",
+       Place := "St Andrews",
+       Institution := "University of St Andrews",
   ),
 ],
 
-Status := "other",
+##  Status information. Currently the following cases are recognized:
+##    "accepted"      for successfully refereed packages
+##    "deposited"     for packages for which the GAP developers agreed
+##                    to distribute them with the core GAP system
+##    "dev"           for development versions of packages
+##    "other"         for all other packages
+##
+Status := "deposited",
 
-# The following are not strictly necessary in your own PackageInfo.g
-# (in the sense that update.g only looks at the usual fields
-# like PackageWWWHome, ArchiveURL etc.). But they are convenient
-# if you use exactly the scheme for your package website that we propose.
-GithubUser := "fingolfin",
-GithubRepository := ~.PackageName,
-GithubWWW := Concatenation("https://github.com/", ~.GithubUser, "/", ~.GithubRepository),
+README_URL := "http://www.math.tu-berlin.de/~kant/download/gap/qaos.README",
+PackageInfoURL := "http://www.math.tu-berlin.de/~kant/download/gap/qaos.PackageInfo.g",
 
-PackageWWWHome := Concatenation("http://", ~.GithubUser, ".github.io/", ~.GithubRepository, "/"),
-README_URL     := Concatenation( ~.PackageWWWHome, "README" ),
-PackageInfoURL := Concatenation( ~.PackageWWWHome, "PackageInfo.g" ),
-# The following assumes you are using the Github releases system. If not, adjust
-# it accordingly.
-ArchiveURL     := Concatenation(~.GithubWWW,
-                    "/releases/download/v", ~.Version, "/",
-                    ~.GithubRepository, "-", ~.Version),
+AbstractHTML :=
+  "The <span class=\"pkgname\">QaoS</span> package provides gateway functions to access the QaoS databases of algebraic objects in Berlin. <span class=\"pkgname\">QaoS</span> is primarily intended to query for transitive groups or algebraic number fields and turn retrieved results into GAP objects for further computing.",
 
-ArchiveFormats := ".tar.gz .tar.bz2",
-
-AbstractHTML := 
-  "This is a pseudo package that contains no actual\
-  <span class=\"pkgname\">GAP</span> code. Instead, it is a template for other\
-  GAP packages that allows to quickly setup GitHub pages.",
+PackageWWWHome := "http://qaos.math.tu-berlin.de/qaos/qaos.scm",
 
 PackageDoc := rec(
-  BookName  := "GitHubPagesForGAP",
+  BookName  := "QaoS",
   ArchiveURLSubset := ["doc"],
-  HTMLStart := "doc/chap0.html",
-  PDFFile   := "doc/manual.pdf",
+  HTMLStart := "doc/qaos.html",
+  PDFFile   := "doc/qaos.pdf",
   SixFile   := "doc/manual.six",
-  LongTitle := "A GitHubPages generator for GAP packages",
-),
+  LongTitle := "QaoS - Querying Algebraic Objects System",
+  Autoload  := true),
 
-# The following dependencies are fake and for testing / demo purposes
 Dependencies := rec(
-  GAP := ">=4.5.5",
-  NeededOtherPackages := [
-    ["GAPDoc", ">= 1.2"],
-    ["IO", ">= 4.1"],
-  ],
-  SuggestedOtherPackages := [["orb", ">= 4.2"]],
-  ExternalConditions := []
-),
+  GAP := ">= 4.3",
+  NeededOtherPackages := [],
+  SuggestedOtherPackages := [],
+  ExternalConditions := ["needs cURL (http://curl.haxx.se)"] ),
 
 AvailabilityTest := ReturnTrue,
-
-Keywords := ["GitHub pages", "GAP"]
+Autoload := false,
+TestFile := "tst/testall.g",
+Keywords := ["algebraic structure theory", "database"]
 
 ));
 
 
+#############################################################################
+##
+#E
