@@ -34,7 +34,7 @@ installation tree.
     bash> tar xjf qaos.tar.bz2       # for the gzipped tar-archive
     bash> gap4
     [... startup messages ...]
-    gap> RequirePackage("qaos");
+    gap> LoadPackage("qaos");
     true
     gap>     
 
