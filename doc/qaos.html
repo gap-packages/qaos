@@ -1,0 +1,818 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html401/loose.dtd">
+<html>
+<!--This file documents the GAP Interface to QaoS databases
+
+Copyright C 2005 Sebastian Freundt and QaoS developers
+-->
+<!-- Created on February, 1 2008 by texi2html 1.70 -->
+<!--
+Written by: Lionel Cons <Lionel.Cons@cern.ch> (original author)
+            Karl Berry  <karl@freefriends.org>
+            Olaf Bachmann <obachman@mathematik.uni-kl.de>
+            and many others.
+Maintained by: Many creative people <dev@texi2html.cvshome.org>
+Send bugs and suggestions to <users@texi2html.cvshome.org>
+
+-->
+<head>
+<title>QaoS User Manual: QaoS</title>
+
+<meta name="description" content="QaoS reference manual">
+<meta name="keywords" content="QaoS User Manual: QaoS">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="texi2html 1.70">
+<meta http-equiv="Content-Type" content="text/html; charset=us-ascii">
+<style type="text/css">
+<!--
+a.summary-letter {text-decoration: none}
+pre.display {font-family: serif}
+pre.format {font-family: serif}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: serif; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: serif; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+ul.toc {list-style: none}
+-->
+</style>
+
+
+</head>
+
+<body lang="en" bgcolor="#FFFFFF" text="#000000" link="#0000FF" vlink="#800080" alink="#FF0000">
+
+<a name="NOD1"></a>
+<a name="SEC_Top"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC8" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h1 class="settitle">QaoS</h1>
+
+<p>This manual documents the GAP Interface to QaoS databases.  These are
+databases of algebraic objects at the KANT Group Berlin.
+
+</p><p>This manual should be considered as introduction for users.
+For more information about QaoS, we refer to the manual of QaoS.
+
+</p><table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top"><a href="#SEC1">1. Concept</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC2">2. Installation</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">         
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC5">3. User Functions</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">               
+</td></tr>
+<tr><td align="left" valign="top"><a href="#SEC8">4. Index</a></td><td>&nbsp;&nbsp;</td><td align="left" valign="top">                 
+</td></tr>
+</table>
+
+
+
+<hr size="1">
+<a name="NOD2"></a>
+<a name="SEC1"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC_Top" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC2" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[ &lt;&lt; ]</td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC2" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC8" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h1 class="chapter"> 1. Concept </h1>
+
+<p>QaoS serves as gateway within GAP to the QaoS databases of Algebraic Objects
+in Berlin.  The database frontend is able to output internal data in a
+GAP-conform format.  This GAP package both triggers the database and retrieves
+the data.  Beyond that, it is also able to retransform received information into
+GAP objects which then could be used in the `normal way'.
+
+</p><p>QaoS itself is a backend/frontend combination of an SQL database which is
+designed to grant public anonymous access via HTTP for reading operations, and
+restricted access via HTTP and TCP/IP for writing operations.
+
+</p><p>The package functionality is partly driven by external utilities.  At the moment
+we support cURL only.  cURL is used for network communication, HTTP GET and POST
+requests and reading results from the network socket, while the GAP part is used
+for content dependent operations.
+
+</p><p>Data for Transitive Groups has been taken from the current GAP distribution.  We
+like to thank Alexander Hulpke for his permission to offer transitive group data
+in our databases.
+
+</p><ul class="toc">
+<li>
+<p>Alexander Hulpke,
+Constructing Transitive Permutation Groups;
+J. Symb. Comp. 39 (2005), 1-30.
+</p></li></ul>
+
+
+<hr size="6">
+<a name="NOD3"></a>
+<a name="SEC2"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC1" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC3" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC1" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC5" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC8" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h1 class="chapter"> 2. Installation </h1>
+
+<p>Installation of the package is fairly easy.
+Fetch the latest qaos package at
+
+</p><p><a href="http://www.math.tu-berlin.de/~kant/download/gap/qaos.tar.bz2">http://www.math.tu-berlin.de/~kant/download/gap/qaos.tar.bz2</a>
+
+</p><p>or via FTP at
+
+</p><p><a href="ftp://ftp.math.tu-berlin.de/pub/algebra/Kant/contrib/gap/">ftp://ftp.math.tu-berlin.de/pub/algebra/Kant/contrib/gap/</a>
+
+</p>
+<hr size="6">
+<a name="SEC3"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC2" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC4" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC2" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC2" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC5" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC8" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 2.1 Installation of the GAP package </h2>
+
+<p>If you have permission to add files to the installation of GAP 4 on your system
+you may install the qaos package into the `<tt>pkg/</tt>' subdirectory of the
+GAP installation tree.
+
+</p><table><tr><td>&nbsp;</td><td><pre class="example">shell&gt; cd /path/to/GAP4/installation/tree/
+shell&gt; cd pkg/
+shell&gt; tar xjf /path/to/qaos.tar.bz2
+</pre></td></tr></table>
+<p>This yields another subdirectory called `<tt>qaos/</tt>' with all the necessary
+files.
+
+</p><p>If you do not have the permission to install the package globally just install
+it to some private area, for example your home directory.
+
+</p><table><tr><td>&nbsp;</td><td><pre class="example">shell&gt; cd ~
+shell&gt; mkdir mygap
+shell&gt; mkdir mygap/pkg
+shell&gt; cd mygap/pkg/
+shell&gt; tar xjf /path/to/qaos.tar.bz2
+</pre></td></tr></table>
+<p>Now whenever you start GAP, be sure to pass the `<tt>mygap/</tt>' directory to the
+package search path of GAP.
+
+</p><table><tr><td>&nbsp;</td><td><pre class="example">shell&gt; gap -l &quot;;$HOME/mygap&quot;
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="SEC4"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC3" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC5" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC2" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC2" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC5" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC8" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 2.2 Installation of cURL </h2>
+
+<p>Go to <a href="http://curl.haxx.se">http://curl.haxx.se</a> and fetch the latest release of cURL for your
+system.  Install it.  Refer to cURL installation instructions if necessary.
+
+</p><p>If you have downloaded precompiled binary packages for your system and none of
+them seem to work, you may also try installing cURL via sources.
+Just fetch the source archive, unpack it somewhere and say
+
+</p><table><tr><td>&nbsp;</td><td><pre class="example">shell&gt; ./configure &amp;&amp; make &amp;&amp; make install
+</pre></td></tr></table>
+<p>Finally, you can test for a successful curl installation by
+
+</p><table><tr><td>&nbsp;</td><td><pre class="example">shell&gt; curl http://curl.haxx.se
+</pre></td></tr></table>
+<p>If this command spits out lots of HTML into your terminal everything is
+installed properly.  If not, adjust your <var>$PATH</var> variable such that 
+
+</p><table><tr><td>&nbsp;</td><td><pre class="example">shell&gt; which curl
+</pre></td></tr></table>
+<p>finds a valid path to the curl binary.
+
+</p>
+
+<hr size="6">
+<a name="NOD4"></a>
+<a name="SEC5"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC4" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC6" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC2" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC8" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC8" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h1 class="chapter"> 3. User Functions </h1>
+
+<p>QaoS provides some user functions to obtain information from the databases.
+Currently, we support queries for transitive groups and algebraic number
+fields.  The corresponding commands are <var>QaosTransitiveGroup</var> and
+<var>QaosNumberField</var>.
+
+</p><hr size="6">
+<a name="SEC6"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC5" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC7" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC5" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC5" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC8" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC8" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 3.1 Retrieve objects matching a query </h2>
+
+<dl>
+<dt><u>Function:</u> <b>QaosTransitiveGroup</b><i> query [optarg]</i>
+<a name="IDX1"></a>
+</dt>
+<dd><p>  Return transitive groups matching <var>query</var>.
+The amount of results is limited by the global variable <var>QaosDefaultLimit</var>.
+
+</p><p>Optional argument <var>optarg</var> is a record with some of the following
+components:
+</p><ul class="toc">
+<li><p> <var>Action</var> (string)
+  
+</p><ul class="toc">
+<li><p> determine an action to perform on <var>query</var>
+  
+</p></li><li><p> default value: &quot;query&quot;
+  
+</p></li><li><p> possible values: &quot;query&quot;, &quot;count&quot;
+  
+</p></li></ul>
+</li><li><p> <var>ColGroups</var> (list of strings)
+  
+</p><ul class="toc">
+<li><p> determine which result groups should be returned; results of QaoS are
+  usually grouped by a so-called `column group'.  In the web interface these
+  column groups are choosable by checking the corresponding name under the text
+  field for the query.
+  
+</p></li><li><p> default value: [&quot;size&quot;,&quot;props&quot;,&quot;perm-struct&quot;]
+  
+</p></li><li><p> possible values:
+  combinations of &quot;size&quot;, &quot;props&quot;, &quot;perm-struct&quot;, &quot;fp-struct&quot;
+  
+</p></li></ul>
+</li><li><p> <var>Limit</var> (integer/string)
+  
+</p><ul class="toc">
+<li><p> determine how many results are retrieved (maximally)
+  
+</p></li><li><p> default value: <var>QaosDefaultLimit</var>
+  
+</p></li><li><p> possible values: any positive integer or &quot;all&quot;
+  
+</p></li></ul>
+</li><li><p> <var>Offset</var> (integer/string)
+  
+</p><ul class="toc">
+<li><p> determine an offset on the set of results, this may be used to
+  sequentially retrieve blocks of results.
+  
+</p></li><li><p> default value: 0
+  
+</p></li><li><p> possible values: any non-negative integer
+  
+</p></li></ul></li></ul>
+</dd></dl>
+
+<dl>
+<dt><u>Function:</u> <b>QaosNumberField</b><i> query [optarg]</i>
+<a name="IDX2"></a>
+</dt>
+<dd><p>  Return number fields matching <var>query</var>.
+The amount of results is limited by the global variable <var>QaosDefaultLimit</var>.
+
+</p><p>Optional argument <var>optarg</var> is a record with some of the following
+components:
+</p><ul class="toc">
+<li><p> <var>Action</var> (string)
+  
+</p><ul class="toc">
+<li><p> determine an action to perform on <var>query</var>
+  
+</p></li><li><p> default value: &quot;query&quot;
+  
+</p></li><li><p> possible values: &quot;query&quot;, &quot;count&quot;
+  
+</p></li></ul>
+</li><li><p> <var>ColGroups</var> (list of strings)
+  
+</p><ul class="toc">
+<li><p> determine which result groups should be returned; results of QaoS are
+  usually grouped by a so-called `column group'.  In the web interface these
+  column groups are choosable by checking the corresponding name under the text
+  field for the query.
+  
+</p></li><li><p> default value: [&quot;size&quot;,&quot;struct&quot;,&quot;clsgroup&quot;,&quot;galgroup&quot;]
+  
+</p></li><li><p> possible values:
+  combinations of &quot;size&quot;, &quot;struct&quot;, &quot;clsgroup&quot;, &quot;galgroup&quot;, &quot;galprops&quot;
+  
+</p></li></ul>
+</li><li><p> <var>Limit</var> (integer/string)
+  
+</p><ul class="toc">
+<li><p> determine how many results are retrieved (maximally)
+  
+</p></li><li><p> default value: <var>QaosDefaultLimit</var>
+  
+</p></li><li><p> possible values: any positive integer or &quot;all&quot;
+  
+</p></li></ul>
+</li><li><p> <var>Offset</var> (integer/string)
+  
+</p><ul class="toc">
+<li><p> determine an offset on the set of results, this may be used to
+  sequentially retrieve blocks of results.
+  
+</p></li><li><p> default value: 0
+  
+</p></li><li><p> possible values: any non-negative integer
+  
+</p></li></ul></li></ul>
+</dd></dl>
+
+<dl>
+<dt><u>Variable:</u> <b>QaosDefaultLimit</b>
+<a name="IDX3"></a>
+</dt>
+<dd><p>  Determine the (maximal) amount of results returned in a query.
+Usually, this can be overridden with the <var>Limit</var>-component in optargs.
+
+</p><p>The default value is 25.
+
+</p><p>The value can be any positive integer or the string &quot;all&quot;, in which case no
+limit is set and all results are returned.
+
+</p><p><em>CAUTION</em>: Setting this variable to &quot;all&quot; may result in exhaustive use of memory,
+network bandwidth, and time.  Therefore, always consider to perform the count
+action on a query before loading all of the results.  The database of number
+fields contains more than 1.35 million number field objects.  Downloading them
+all means retrieving a string of approx. 1.8 GB length!!!
+</p></dd></dl>
+<a name="IDX4"></a>
+
+
+<p>The following examples show their usage:
+
+</p><p>Query for transitive groups of degree 4.
+</p><table><tr><td>&nbsp;</td><td><pre class="example">gap&gt; QaosTransitiveGroup(&quot;d4&quot;);
+#I Retrieved 5 Transitive Groups.
+#I (C) 2004-2005 QaoS developers &lt;kantdb@math.tu-berlin.de&gt;,
+#I The Kant Project &lt;kant@math.tu-berlin.de&gt;
+#I qaos--dev--1.0--patch-32
+#I 2005-08-29 07:54:18 UTC
+&lt;collection from database: 5 transitive groups; &quot;d4&quot;&gt;
+</pre></td></tr></table>
+<p>Count transitive groups of degree 8.
+</p><table><tr><td>&nbsp;</td><td><pre class="example">gap&gt; QaosTransitiveGroup(&quot;d8&quot;,rec(Action:=&quot;count&quot;));
+#I (C) 2004-2005 QaoS developers &lt;kantdb@math.tu-berlin.de&gt;,
+#I The Kant Project &lt;kant@math.tu-berlin.de&gt;
+#I qaos--dev--1.0--patch-33
+#I 2005-08-29 10:04:49 UTC
+50 transitive group satisfy &quot;d8&quot;
+</pre></td></tr></table>
+<p>Retrieve the first 25 transitive groups of degree 8.
+</p><table><tr><td>&nbsp;</td><td><pre class="example">gap&gt; q1:=QaosTransitiveGroup(&quot;d8&quot;);
+#I Retrieved 25 Transitive Groups.
+#I (C) 2004-2005 QaoS developers &lt;kantdb@math.tu-berlin.de&gt;,
+#I The Kant Project &lt;kant@math.tu-berlin.de&gt;
+#I qaos--dev--1.0--patch-33
+#I 2005-08-29 10:08:50 UTC
+&lt;collection from database: 25 transitive groups; &quot;d8&quot;&gt;
+</pre></td></tr></table>
+<p>Now retrieve the next 25 results.
+</p><table><tr><td>&nbsp;</td><td><pre class="example">gap&gt; q2:=QaosTransitiveGroup(&quot;d8&quot;,rec(Offset:=25));
+#I Retrieved 25 Transitive Groups.
+#I (C) 2004-2005 QaoS developers &lt;kantdb@math.tu-berlin.de&gt;,
+#I The Kant Project &lt;kant@math.tu-berlin.de&gt;
+#I qaos--dev--1.0--patch-33
+#I 2005-08-29 10:09:41 UTC
+&lt;collection from database: 25 transitive groups; &quot;d8&quot;&gt;
+</pre></td></tr></table>
+<p>Retrieve number fields of degree 4.
+</p><table><tr><td>&nbsp;</td><td><pre class="example">gap&gt; QaosNumberField(&quot;d4&quot;);
+#I Retrieved 25 Algebraic Number Fields.
+#I (C) 2004-2005 QaoS developers &lt;kantdb@math.tu-berlin.de&gt;,
+#I The Kant Project &lt;kant@math.tu-berlin.de&gt;
+#I qaos--dev--1.0--patch-32
+#I 2005-08-29 07:55:11 UTC
+&lt;collection from database: 25 number fields; &quot;d4&quot;&gt;
+</pre></td></tr></table>
+<p>When either of these functions is called with no arguments a short general help
+is displayed:
+</p><table><tr><td>&nbsp;</td><td><pre class="example">gap&gt; QaosTransitiveGroup();
+QaosTransitiveGroup(&lt;query&gt; [, &lt;optarg&gt;]) -&gt; &lt;result&gt;
+ 
+Searches the Algebraic Objects Database in Berlin.
+The query string equals the keyword search method in the web surface.
+See
+`http://qaos.math.tu-berlin.de/qaos/query.scm?type=trnsg&amp;action=Help'
+for more information about the syntax and keywords.
+ 
+Note: You must have `curl' (see http://curl.haxx.se) installed and properly
+configured in order to use QaoS from within GAP.
+ 
+true
+</pre></td></tr></table>
+<p>In this manual we also refer to the help screen of the web interface to obtain
+more detailed information about the query string.
+
+</p>
+<hr size="6">
+<a name="SEC7"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC6" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC8" title="Next section in reading order"> &gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC5" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC5" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC8" title="Next chapter"> &gt;&gt; </a>]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC8" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h2 class="section"> 3.2 Examine the contents of a database collection </h2>
+
+<p>In order to actually see the information there is a function called
+<var>QaosResult</var> which displays a list of retrieved objects.
+
+</p><dl>
+<dt><u>Function:</u> <b>QaosResult</b><i> database-collection</i>
+<a name="IDX5"></a>
+</dt>
+<dd><p>Return the list of retrieved objects in <var>database-collection</var>.
+
+</p><p>This function actually reveals the result of a query.
+</p></dd></dl>
+<a name="IDX6"></a>
+
+<dl>
+<dt><u>Function:</u> <b>QaosResult</b><i> database-count</i>
+<a name="IDX7"></a>
+</dt>
+<dd><p>Return the (non-negative) integer of a count query (see <var>Action</var>-component
+in optarg record). 
+</p></dd></dl>
+<a name="IDX8"></a>
+
+
+<p>Let us examine the groups behind a query for degree 8 abelian transitive groups.
+</p><table><tr><td>&nbsp;</td><td><pre class="example">gap&gt; Q:=QaosTransitiveGroup(&quot;d8 abelian&quot;);
+#I Retrieved 3 Transitive Groups.
+#I (C) 2004-2005 QaoS developers &lt;kantdb@math.tu-berlin.de&gt;,
+#I The Kant Project &lt;kant@math.tu-berlin.de&gt;
+#I qaos--dev--1.0--patch-32
+#I 2005-08-29 08:01:30 UTC
+&lt;collection from database: 3 transitive groups; &quot;d8 abelian&quot;&gt;
+gap&gt;
+gap&gt; QaosResult(Q);
+[ &lt;transitive group from database: C(8) = 8; id 39&gt;,
+  &lt;transitive group from database: 4[x]2; id 40&gt;,
+  &lt;transitive group from database: E(8) = 2[x]2[x]2; id 41&gt; ]
+</pre></td></tr></table>
+<p>To use the retrieved group objects in GAP you may use the <var>AsGroup</var>
+operation on a result.
+
+</p><dl>
+<dt><u>Function:</u> <b>AsGroup</b><i> database-group-object</i>
+<a name="IDX9"></a>
+</dt>
+<dd><p>Return the GAP group object representing <var>database-group-object</var>.
+
+</p><p>If <var>database-group-object</var> cannot be turned into a group, return <var>fail</var>.
+</p></dd></dl>
+<a name="IDX10"></a>
+
+<p>From the above example, let us GAP-ify the third group object.
+</p><table><tr><td>&nbsp;</td><td><pre class="example">gap&gt; AsGroup(QaosResult(Q)[3]);
+Group([ (1,8)(2,3)(4,5)(6,7), (1,3)(2,8)(4,6)(5,7), (1,5)(2,6)(3,7)(4,8) ])
+</pre></td></tr></table>
+
+<p>For number field objects the corresponding operation is <var>AsField</var>.
+
+</p><dl>
+<dt><u>Function:</u> <b>AsField</b><i> database-field-object</i>
+<a name="IDX11"></a>
+</dt>
+<dd><p>Return the GAP field object representing <var>database-field-object</var>.
+
+</p><p>If <var>database-field-object</var> cannot be turned into a field, return
+<var>fail</var>.
+</p></dd></dl>
+<a name="IDX12"></a>
+
+<p>Consider following example for number fields (number fields of degree 5 with
+absolute discrimnant between 100000 and 120000 and non-trivial class group):
+</p><table><tr><td>&nbsp;</td><td><pre class="example">gap&gt; R:=QaosNumberField(&quot;d5 |disc| &gt;=100000 |disc| &lt;=120000 cn&gt;1&quot;);
+#I Retrieved 18 Algebraic Number Fields.
+#I (C) 2004-2005 QaoS developers &lt;kantdb@math.tu-berlin.de&gt;,
+#I The Kant Project &lt;kant@math.tu-berlin.de&gt;
+#I qaos--dev--1.0--patch-32
+#I 2005-08-29 08:32:35 UTC
+&lt;collection from database: 18 number fields; &quot;d5 |disc| &gt;=100000 |disc| &lt;=120000 cn&gt;1&quot;&gt;
+gap&gt; QaosResult(R);
+[ &lt;number field from database: x_1^5+x_1^4-2*x_1^2+7*x_1+1; id 843712&gt;,
+  &lt;number field from database: x_1^5+x_1^4+2*x_1^3-4*x_1^2+2*x_1-1; id 843791&gt;,
+  &lt;number field from database: x_1^5+2*x_1^4-2*x_1^3+2*x_1^2+x_1+4; id 843841&gt;,
+  &lt;number field from database: x_1^5+x_1^4+4*x_1^3+4*x_1-1; id 843892&gt;,
+  &lt;number field from database: x_1^5+x_1^4+x_1^3+4*x_1^2+3*x_1-1; id 843894&gt;,
+  &lt;number field from database: x_1^5+x_1^4-3*x_1^3-2*x_1^2+6*x_1-4; id 843897&gt;,
+  &lt;number field from database: x_1^5+2*x_1^3+2*x_1^2+4*x_1+1; id 843930&gt;,
+  &lt;number field from database: x_1^5+2*x_1^4+6*x_1^3+4*x_1^2+4*x_1-1; id 843955&gt;,
+  &lt;number field from database: x_1^5+x_1^4-4*x_1^2+2*x_1+1; id 844004&gt;,
+  &lt;number field from database: x_1^5+4*x_1^2+1; id 844011&gt;,
+  &lt;number field from database: x_1^5+2*x_1^4+3*x_1^3+2*x_1^2-3*x_1+1; id 844036&gt;,
+  &lt;number field from database: x_1^5+x_1^4+3*x_1^3+2*x_1^2+8*x_1-1; id 844043&gt;,
+  &lt;number field from database: x_1^5+x_1^4+5*x_1^3+5*x_1^2+2*x_1+1; id 844062&gt;,
+  &lt;number field from database: x_1^5+2*x_1^4-3*x_1^3+6*x_1^2-3*x_1+1; id 844066&gt;,
+  &lt;number field from database: x_1^5+x_1^4-x_1^3-4*x_1^2+5*x_1-1; id 844082&gt;,
+  &lt;number field from database: x_1^5+2*x_1^4-x_1^3-3*x_1^2+4*x_1+1; id 844107&gt;,
+  &lt;number field from database: x_1^5+x_1^4+2*x_1^3+3*x_1^2-2*x_1+1; id 844110&gt;,
+  &lt;number field from database: x_1^5+2*x_1^4-6*x_1^3+5*x_1^2-2*x_1+1; id 844145&gt; ]
+gap&gt; AsField(QaosResult(R)[4]);
+&lt;field in characteristic 0&gt;
+</pre></td></tr></table>
+
+<hr size="6">
+<a name="NOD5"></a>
+<a name="SEC8"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC7" title="Previous section in reading order"> &lt; </a>]</td>
+<td valign="middle" align="left">[ &gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC5" title="Beginning of this chapter or previous chapter"> &lt;&lt; </a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Up section"> Up </a>]</td>
+<td valign="middle" align="left">[ &gt;&gt; ]</td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left"> &nbsp; </td>
+<td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC8" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h1 class="chapter"> 4. Index </h1>
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a href="#SEC8_0" class="summary-letter"><b>A</b></a>
+ &nbsp; 
+<a href="#SEC8_1" class="summary-letter"><b>Q</b></a>
+ &nbsp; 
+</td></tr></table><table border="0" class="index-fn">
+<tr><td></td><th align="left">Index Entry</th><th align="left"> Section</th></tr>
+<tr><td colspan="3"> <hr></td></tr>
+<tr><th><a name="SEC8_0">A</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#IDX11"><code>AsField</code></a></td><td valign="top"><a href="#SEC7">3.2 Examine the contents of a database collection</a></td></tr>
+<tr><td></td><td valign="top"><a href="#IDX12"><code>AsField</code></a></td><td valign="top"><a href="#SEC7">3.2 Examine the contents of a database collection</a></td></tr>
+<tr><td></td><td valign="top"><a href="#IDX9"><code>AsGroup</code></a></td><td valign="top"><a href="#SEC7">3.2 Examine the contents of a database collection</a></td></tr>
+<tr><td></td><td valign="top"><a href="#IDX10"><code>AsGroup</code></a></td><td valign="top"><a href="#SEC7">3.2 Examine the contents of a database collection</a></td></tr>
+<tr><td colspan="3"> <hr></td></tr>
+<tr><th><a name="SEC8_1">Q</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#IDX3"><code>QaosDefaultLimit</code></a></td><td valign="top"><a href="#SEC6">3.1 Retrieve objects matching a query</a></td></tr>
+<tr><td></td><td valign="top"><a href="#IDX4"><code>QaosDefaultLimit</code></a></td><td valign="top"><a href="#SEC6">3.1 Retrieve objects matching a query</a></td></tr>
+<tr><td></td><td valign="top"><a href="#IDX2"><code>QaosNumberField</code></a></td><td valign="top"><a href="#SEC6">3.1 Retrieve objects matching a query</a></td></tr>
+<tr><td></td><td valign="top"><a href="#IDX5"><code>QaosResult</code></a></td><td valign="top"><a href="#SEC7">3.2 Examine the contents of a database collection</a></td></tr>
+<tr><td></td><td valign="top"><a href="#IDX6"><code>QaosResult</code></a></td><td valign="top"><a href="#SEC7">3.2 Examine the contents of a database collection</a></td></tr>
+<tr><td></td><td valign="top"><a href="#IDX7"><code>QaosResult</code></a></td><td valign="top"><a href="#SEC7">3.2 Examine the contents of a database collection</a></td></tr>
+<tr><td></td><td valign="top"><a href="#IDX8"><code>QaosResult</code></a></td><td valign="top"><a href="#SEC7">3.2 Examine the contents of a database collection</a></td></tr>
+<tr><td></td><td valign="top"><a href="#IDX1"><code>QaosTransitiveGroup</code></a></td><td valign="top"><a href="#SEC6">3.1 Retrieve objects matching a query</a></td></tr>
+<tr><td colspan="3"> <hr></td></tr>
+</table><table><tr><th valign="top">Jump to: &nbsp; </th><td><a href="#SEC8_0" class="summary-letter"><b>A</b></a>
+ &nbsp; 
+<a href="#SEC8_1" class="summary-letter"><b>Q</b></a>
+ &nbsp; 
+</td></tr></table>
+<hr size="6">
+<a name="SEC_Contents"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC8" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h1>Table of Contents</h1>
+<div class="contents">
+
+<ul class="toc">
+  <li><a name="TOC1" href="#SEC1">1. Concept</a></li>
+  <li><a name="TOC2" href="#SEC2">2. Installation</a>
+  <ul class="toc">
+    <li><a name="TOC3" href="#SEC3">2.1 Installation of the GAP package</a></li>
+    <li><a name="TOC4" href="#SEC4">2.2 Installation of cURL</a></li>
+  </ul></li>
+  <li><a name="TOC5" href="#SEC5">3. User Functions</a>
+  <ul class="toc">
+    <li><a name="TOC6" href="#SEC6">3.1 Retrieve objects matching a query</a></li>
+    <li><a name="TOC7" href="#SEC7">3.2 Examine the contents of a database collection</a></li>
+  </ul></li>
+  <li><a name="TOC8" href="#SEC8">4. Index</a></li>
+</ul>
+</div>
+<hr size="1">
+<a name="SEC_Overview"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC8" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h1>Short Table of Contents</h1>
+<div class="shortcontents">
+<ul class="toc">
+<li><a name="TOC1" href="#SEC1">1. Concept</a></li>
+<li><a name="TOC2" href="#SEC2">2. Installation</a></li>
+<li><a name="TOC5" href="#SEC5">3. User Functions</a></li>
+<li><a name="TOC8" href="#SEC8">4. Index</a></li>
+</ul>
+</div>
+<hr size="1">
+<a name="SEC_About"></a>
+<table cellpadding="1" cellspacing="1" border="0">
+<tr><td valign="middle" align="left">[<a href="#SEC_Top" title="Cover (top) of document">Top</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_Contents" title="Table of contents">Contents</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC8" title="Index">Index</a>]</td>
+<td valign="middle" align="left">[<a href="#SEC_About" title="About (help)"> ? </a>]</td>
+</tr></table>
+<h1>About This Document</h1>
+<p>
+  This document was generated by <em>Sebastian Freundt</em> on <em>February, 1 2008</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.70</em></a>.
+</p>
+<p>
+  The buttons in the navigation panels have the following meaning:
+</p>
+<table border="1">
+  <tr>
+    <th> Button </th>
+    <th> Name </th>
+    <th> Go to </th>
+    <th> From 1.2.3 go to</th>
+  </tr>
+  <tr>
+    <td align="center"> [ &lt; ] </td>
+    <td align="center">Back</td>
+    <td>previous section in reading order</td>
+    <td>1.2.2</td>
+  </tr>
+  <tr>
+    <td align="center"> [ &gt; ] </td>
+    <td align="center">Forward</td>
+    <td>next section in reading order</td>
+    <td>1.2.4</td>
+  </tr>
+  <tr>
+    <td align="center"> [ &lt;&lt; ] </td>
+    <td align="center">FastBack</td>
+    <td>beginning of this chapter or previous chapter</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td align="center"> [ Up ] </td>
+    <td align="center">Up</td>
+    <td>up section</td>
+    <td>1.2</td>
+  </tr>
+  <tr>
+    <td align="center"> [ &gt;&gt; ] </td>
+    <td align="center">FastForward</td>
+    <td>next chapter</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td align="center"> [Top] </td>
+    <td align="center">Top</td>
+    <td>cover (top) of document</td>
+    <td> &nbsp; </td>
+  </tr>
+  <tr>
+    <td align="center"> [Contents] </td>
+    <td align="center">Contents</td>
+    <td>table of contents</td>
+    <td> &nbsp; </td>
+  </tr>
+  <tr>
+    <td align="center"> [Index] </td>
+    <td align="center">Index</td>
+    <td>index</td>
+    <td> &nbsp; </td>
+  </tr>
+  <tr>
+    <td align="center"> [ ? ] </td>
+    <td align="center">About</td>
+    <td>about (help)</td>
+    <td> &nbsp; </td>
+  </tr>
+</table>
+
+<p>
+  where the <strong> Example </strong> assumes that the current position is at <strong> Subsubsection One-Two-Three </strong> of a document of the following structure:
+</p>
+
+<ul>
+  <li> 1. Section One
+    <ul>
+      <li>1.1 Subsection One-One
+        <ul>
+          <li>...</li>
+        </ul>
+      </li>
+      <li>1.2 Subsection One-Two
+        <ul>
+          <li>1.2.1 Subsubsection One-Two-One</li>
+          <li>1.2.2 Subsubsection One-Two-Two</li>
+          <li>1.2.3 Subsubsection One-Two-Three &nbsp; &nbsp;
+            <strong>&lt;== Current Position </strong></li>
+          <li>1.2.4 Subsubsection One-Two-Four</li>
+        </ul>
+      </li>
+      <li>1.3 Subsection One-Three
+        <ul>
+          <li>...</li>
+        </ul>
+      </li>
+      <li>1.4 Subsection One-Four</li>
+    </ul>
+  </li>
+</ul>
+
+<hr size="1">
+<p>
+ <font size="-1">
+  This document was generated by <em>Sebastian Freundt</em> on <em>February, 1 2008</em> using <a href="http://texi2html.cvshome.org/"><em>texi2html 1.70</em></a>.
+ </font>
+ <br>
+
+</p>
+</body>
+</html>

@@ -1,0 +1,395 @@
+This is pdfeTeXk, Version 3.141592-1.20a-2.2 (Web2C 7.5.3) (format=etex 2005.9.26)  1 FEB 2008 16:19
+entering extended mode
+ file:line:error style messages enabled.
+**/net/kant/KASH3/qaos.main.1.0/contrib/gap/qaos/doc/qaos.texi
+(/net/kant/KASH3/qaos.main.1.0/contrib/gap/qaos/doc/qaos.texi
+(/homes/algebra/freundt/usr/local64/cusTeX/share/texmf/tex/texinfo/texinfo.tex
+Loading texinfo [version 2004-11-25.16]: Basics,
+\bindingoffset=\dimen16
+\normaloffset=\dimen17
+\pagewidth=\dimen18
+\pageheight=\dimen19
+\outerhsize=\dimen20
+\outervsize=\dimen21
+\cornerlong=\dimen22
+\cornerthick=\dimen23
+\topandbottommargin=\dimen24
+\headlinebox=\box16
+\footlinebox=\box17
+\margin=\insert252
+\EMsimple=\toks13
+\groupbox=\box18
+\groupinvalidhelp=\toks14
+\mil=\dimen25
+\exdentamount=\skip18
+\inmarginspacing=\skip19
+ pdf,
+\tempnum=\count27
+\lnkcount=\count28
+\filename=\toks15
+\filenamelength=\count29
+\pgn=\count30
+\toksA=\toks16
+\toksB=\toks17
+\toksC=\toks18
+\toksD=\toks19
+\boxA=\box19
+\countA=\count31
+ fonts,
+\sffam=\fam8
+\textleading=\dimen26
+\fontdepth=\count32
+ page headings,
+\titlepagetopglue=\skip20
+\titlepagebottomglue=\skip21
+\evenheadline=\toks20
+\oddheadline=\toks21
+\evenfootline=\toks22
+\oddfootline=\toks23
+
+tables,
+\tableindent=\dimen27
+\itemindent=\dimen28
+\itemmargin=\dimen29
+\itemmax=\dimen30
+\itemno=\count33
+\multitableparskip=\skip22
+\multitableparindent=\skip23
+\multitablecolspace=\dimen31
+\multitablelinespace=\skip24
+\colcount=\count34
+\everytab=\toks24
+ conditionals,
+\doignorecount=\count35
+ indexing,
+\secondaryindent=\skip25
+\partialpage=\box20
+\doublecolumnhsize=\dimen32
+ sectioning,
+\unnumberedno=\count36
+\chapno=\count37
+\secno=\count38
+\subsecno=\count39
+\subsubsecno=\count40
+\appendixno=\count41
+\absseclevel=\count42
+\secbase=\count43
+\chapheadingskip=\skip26
+\secheadingskip=\skip27
+\subsecheadingskip=\skip28
+ toc,
+\tocfile=\write0
+\contentsrightmargin=\skip29
+\savepageno=\count44
+\lastnegativepageno=\count45
+\tocindent=\dimen33
+ environments,
+\errorbox=\box21
+\lispnarrowing=\skip30
+\envskipamount=\skip31
+\circthick=\dimen34
+\cartouter=\dimen35
+\cartinner=\dimen36
+\normbskip=\skip32
+\normpskip=\skip33
+\normlskip=\skip34
+\lskip=\skip35
+\rskip=\skip36
+\tabw=\dimen37
+ defuns,
+\defbodyindent=\skip37
+\defargsindent=\skip38
+\deflastargmargin=\skip39
+\parencount=\count46
+\brackcount=\count47
+ macros,
+\paramno=\count48
+\macname=\toks25
+
+cross references,
+\auxfile=\write1
+\savesfregister=\count49
+ insertions,
+\footnoteno=\count50
+\SAVEfootins=\box22
+\SAVEmargin=\box23
+
+(/homes/algebra/freundt/texmf/tex/generic/dvips/epsf.tex
+\epsffilein=\read1
+\epsfframemargin=\dimen38
+\epsfframethickness=\dimen39
+\epsfrsize=\dimen40
+\epsftmp=\dimen41
+\epsftsize=\dimen42
+\epsfxsize=\dimen43
+\epsfysize=\dimen44
+\pspoints=\dimen45
+\epsfnoopenhelp=\toks26
+)
+\noepsfhelp=\toks27
+ localization,
+\nolanghelp=\toks28
+\defaultparindent=\dimen46
+
+and turning on texinfo input format.) (./qaos.aux)
+\openout1 = `qaos.aux'.
+
+@cpindfile=@write2
+@fnindfile=@write3
+@vrindfile=@write4
+@tpindfile=@write5
+@kyindfile=@write6
+@pgindfile=@write7
+ [1
+\openout2 = `qaos.cp'.
+
+\openout3 = `qaos.fn'.
+
+\openout4 = `qaos.vr'.
+
+\openout5 = `qaos.tp'.
+
+\openout6 = `qaos.ky'.
+
+\openout7 = `qaos.pg'.
+
+] [2] (./qaos.toc)
+[-1] [-2] (./qaos.toc) [-3] [-4] (QaoS)
+\openout0 = `qaos.toc'.
+
+ Chapter 1 [1] [2] Chapter 2 [3]
+[4] Chapter 3 [5] [6] [7] [8]
+Overfull \hbox (26.43913pt too wide) in paragraph at lines 380--380
+ []@texttt Note: You must have `curl' (see http://curl.haxx.se) installed and p
+roperly[] 
+
+@hbox(7.60416+2.43333)x433.62
+.@glue(@leftskip) 28.90755
+.@hbox(0.0+0.0)x0.0
+.@texttt N
+.@texttt o
+.@texttt t
+.etc.
+
+[9]
+Overfull \hbox (26.43913pt too wide) in paragraph at lines 438--438
+ []@texttt Group([ (1,8)(2,3)(4,5)(6,7), (1,3)(2,8)(4,6)(5,7), (1,5)(2,6)(3,7)(
+4,8) ])[] 
+
+@hbox(7.60416+2.43333)x433.62
+.@glue(@leftskip) 28.90755
+.@hbox(0.0+0.0)x0.0
+.@texttt G
+.@texttt r
+.@texttt o
+.etc.
+
+
+Overfull \hbox (95.42339pt too wide) in paragraph at lines 461--461
+ []@texttt <collection from database: 18 number fields; "d5 |disc| >=100000 |di
+sc| <=120000 cn>1">[] 
+
+@hbox(7.60416+1.52081)x433.62
+.@glue(@leftskip) 28.90755
+.@hbox(0.0+0.0)x0.0
+.@texttt <
+.@texttt c
+.@texttt o
+.etc.
+
+
+Overfull \hbox (49.43388pt too wide) in paragraph at lines 464--464
+ []  @texttt <number field from database: x_1^5+x_1^4+2*x_1^3-4*x_1^2+2*x_1-1; 
+id 843791>,[] 
+
+@hbox(6.69167+1.52081)x433.62
+.@glue(@leftskip) 28.90755
+.@hbox(0.0+0.0)x0.0
+.@penalty 10000
+.@glue 5.74869
+.@penalty 10000
+.etc.
+
+
+Overfull \hbox (49.43388pt too wide) in paragraph at lines 465--465
+ []  @texttt <number field from database: x_1^5+2*x_1^4-2*x_1^3+2*x_1^2+x_1+4; 
+id 843841>,[] 
+
+@hbox(6.69167+1.52081)x433.62
+.@glue(@leftskip) 28.90755
+.@hbox(0.0+0.0)x0.0
+.@penalty 10000
+.@glue 5.74869
+.@penalty 10000
+.etc.
+
+[10]
+Overfull \hbox (37.93651pt too wide) in paragraph at lines 467--467
+ []  @texttt <number field from database: x_1^5+x_1^4+x_1^3+4*x_1^2+3*x_1-1; id
+ 843894>,[] 
+
+@hbox(6.69167+1.52081)x433.62
+.@glue(@leftskip) 28.90755
+.@hbox(0.0+0.0)x0.0
+.@penalty 10000
+.@glue 5.74869
+.@penalty 10000
+.etc.
+
+
+Overfull \hbox (49.43388pt too wide) in paragraph at lines 468--468
+ []  @texttt <number field from database: x_1^5+x_1^4-3*x_1^3-2*x_1^2+6*x_1-4; 
+id 843897>,[] 
+
+@hbox(6.69167+1.52081)x433.62
+.@glue(@leftskip) 28.90755
+.@hbox(0.0+0.0)x0.0
+.@penalty 10000
+.@glue 5.74869
+.@penalty 10000
+.etc.
+
+
+Overfull \hbox (14.94176pt too wide) in paragraph at lines 469--469
+ []  @texttt <number field from database: x_1^5+2*x_1^3+2*x_1^2+4*x_1+1; id 843
+930>,[] 
+
+@hbox(6.69167+1.52081)x433.62
+.@glue(@leftskip) 28.90755
+.@hbox(0.0+0.0)x0.0
+.@penalty 10000
+.@glue 5.74869
+.@penalty 10000
+.etc.
+
+
+Overfull \hbox (60.93126pt too wide) in paragraph at lines 470--470
+ []  @texttt <number field from database: x_1^5+2*x_1^4+6*x_1^3+4*x_1^2+4*x_1-1
+; id 843955>,[] 
+
+@hbox(6.69167+1.52081)x433.62
+.@glue(@leftskip) 28.90755
+.@hbox(0.0+0.0)x0.0
+.@penalty 10000
+.@glue 5.74869
+.@penalty 10000
+.etc.
+
+
+Overfull \hbox (60.93126pt too wide) in paragraph at lines 473--473
+ []  @texttt <number field from database: x_1^5+2*x_1^4+3*x_1^3+2*x_1^2-3*x_1+1
+; id 844036>,[] 
+
+@hbox(6.69167+1.52081)x433.62
+.@glue(@leftskip) 28.90755
+.@hbox(0.0+0.0)x0.0
+.@penalty 10000
+.@glue 5.74869
+.@penalty 10000
+.etc.
+
+
+Overfull \hbox (49.43388pt too wide) in paragraph at lines 474--474
+ []  @texttt <number field from database: x_1^5+x_1^4+3*x_1^3+2*x_1^2+8*x_1-1; 
+id 844043>,[] 
+
+@hbox(6.69167+1.52081)x433.62
+.@glue(@leftskip) 28.90755
+.@hbox(0.0+0.0)x0.0
+.@penalty 10000
+.@glue 5.74869
+.@penalty 10000
+.etc.
+
+
+Overfull \hbox (49.43388pt too wide) in paragraph at lines 475--475
+ []  @texttt <number field from database: x_1^5+x_1^4+5*x_1^3+5*x_1^2+2*x_1+1; 
+id 844062>,[] 
+
+@hbox(6.69167+1.52081)x433.62
+.@glue(@leftskip) 28.90755
+.@hbox(0.0+0.0)x0.0
+.@penalty 10000
+.@glue 5.74869
+.@penalty 10000
+.etc.
+
+
+Overfull \hbox (60.93126pt too wide) in paragraph at lines 476--476
+ []  @texttt <number field from database: x_1^5+2*x_1^4-3*x_1^3+6*x_1^2-3*x_1+1
+; id 844066>,[] 
+
+@hbox(6.69167+1.52081)x433.62
+.@glue(@leftskip) 28.90755
+.@hbox(0.0+0.0)x0.0
+.@penalty 10000
+.@glue 5.74869
+.@penalty 10000
+.etc.
+
+
+Overfull \hbox (37.93651pt too wide) in paragraph at lines 477--477
+ []  @texttt <number field from database: x_1^5+x_1^4-x_1^3-4*x_1^2+5*x_1-1; id
+ 844082>,[] 
+
+@hbox(6.69167+1.52081)x433.62
+.@glue(@leftskip) 28.90755
+.@hbox(0.0+0.0)x0.0
+.@penalty 10000
+.@glue 5.74869
+.@penalty 10000
+.etc.
+
+
+Overfull \hbox (49.43388pt too wide) in paragraph at lines 478--478
+ []  @texttt <number field from database: x_1^5+2*x_1^4-x_1^3-3*x_1^2+4*x_1+1; 
+id 844107>,[] 
+
+@hbox(6.69167+1.52081)x433.62
+.@glue(@leftskip) 28.90755
+.@hbox(0.0+0.0)x0.0
+.@penalty 10000
+.@glue 5.74869
+.@penalty 10000
+.etc.
+
+
+Overfull \hbox (49.43388pt too wide) in paragraph at lines 479--479
+ []  @texttt <number field from database: x_1^5+x_1^4+2*x_1^3+3*x_1^2-2*x_1+1; 
+id 844110>,[] 
+
+@hbox(6.69167+1.52081)x433.62
+.@glue(@leftskip) 28.90755
+.@hbox(0.0+0.0)x0.0
+.@penalty 10000
+.@glue 5.74869
+.@penalty 10000
+.etc.
+
+
+Overfull \hbox (66.67995pt too wide) in paragraph at lines 480--480
+ []  @texttt <number field from database: x_1^5+2*x_1^4-6*x_1^3+5*x_1^2-2*x_1+1
+; id 844145> ][] 
+
+@hbox(7.60416+1.52081)x433.62
+.@glue(@leftskip) 28.90755
+.@hbox(0.0+0.0)x0.0
+.@penalty 10000
+.@glue 5.74869
+.@penalty 10000
+.etc.
+
+Chapter 4 [11] [12] (./qaos.fns) [13] [14] ) 
+Here is how much of TeX's memory you used:
+ 1448 strings out of 259501
+ 15874 string characters out of 2211861
+ 35886 words of memory out of 1000000
+ 2540 multiletter control sequences out of 10000+50000
+ 32127 words of font info for 112 fonts, out of 500000 for 2000
+ 51 hyphenation exceptions out of 10000
+ 13i,6n,16p,283b,420s stack positions out of 30000i,500n,6000p,300000b,40000s
+ 0 PDF objects out of 300000
+ 0 named destinations out of 131072
+ 1 words of extra memory for PDF output out of 65536
+
+Output written on qaos.dvi (20 pages, 26540 bytes).

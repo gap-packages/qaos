@@ -1,0 +1,14 @@
+C concept.tex 1. Concept
+C installation.tex 2. Installation
+S 2.1. Installation of the GAP package
+S 2.2. Installation of cURL
+C userfunctions.tex 3. User Functions
+S 3.1. Retrieve objects matching a query
+F 3.1. QaosTransitiveGroup
+F 3.1. QaosNumberField
+S 3.2. Examine the contents of a database collection
+F 3.2. QaosResult
+F 3.2. QaosResult
+F 3.2. AsGroup
+F 3.2. AsField
+C index.tex 4. Index

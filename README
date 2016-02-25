@@ -1,0 +1,59 @@
+
+The GAP 4 package `qaos-gap'
+============================
+
+Prerequisites
+=============
+
+- get and install curl
+
+
+Installing this package
+=======================
+
+This latest version of this package is available at 
+
+      http://www.math.tu-berlin.de/~kant/download/gap/qaos.tar.bz2
+
+or fetch it via FTP at
+
+      ftp://ftp.math.tu-berlin.de/pub/algebra/Kant/contrib/gap/
+
+
+There are two ways of installing the package.  If you have permission
+to add files to the installation of GAP 4 on your system you may
+install the qaos-gap package into the pkg/ subdirectory of the GAP
+installation tree.
+
+--  Installation in the GAP 4 pkg subdirectory on a Unix system.
+
+    We assume that the archive file qaos-gap.tar.bz2 or qaos-gap.tar is
+    present in pkg and that the current directory is pkg.  All that needs
+    to be done is to unpack the archive.
+
+    bash> tar xjf qaos.tar.bz2       # for the gzipped tar-archive
+    bash> gap4
+    [... startup messages ...]
+    gap> RequirePackage("qaos");
+    true
+    gap>     
+
+--  Installation in a private directory
+
+    We assume that we are in a directory called  <mygap>  which also
+    contains the archive file of the package.
+
+    bash> mkdir pkg
+    bash> cd pkg/
+    bash> tar xjf ../qaos.tar.bz2
+
+    When you start GAP 4 you have to use the option -l in the
+    following manner:
+
+    gap4 -l ";<mygap>"
+
+    Note the semicolon!  It is imortant to have it there.  The effect
+    is that the directory <mygap> is appended to the list of
+    directories which GAP searches for input data.  Note that you do
+    not say <mygap>/pkg.
+

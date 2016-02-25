@@ -1,0 +1,8 @@
+\initial {A}
+\entry {\code {AsField}}{10}
+\entry {\code {AsGroup}}{10}
+\initial {Q}
+\entry {\code {QaosDefaultLimit}}{8}
+\entry {\code {QaosNumberField}}{7}
+\entry {\code {QaosResult}}{10}
+\entry {\code {QaosTransitiveGroup}}{7}
