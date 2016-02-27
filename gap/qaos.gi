@@ -381,7 +381,7 @@ InstallGlobalFunction( QaosTransitiveGroup,
   
       for l in coll do
         QRl := QaosResult(l);
-        SetTypeObj(typ,l);
+        Objectify(typ,l);
         SetIsTransitive(l,true);
         SetIsFinitelyGeneratedGroup(l,true);
         SetSize(l,QRl.ord);
@@ -480,7 +480,7 @@ InstallGlobalFunction( QaosNumberField,
   
       for l in coll do
         QRl := QaosResult(l);
-        SetTypeObj(typ,l);
+        Objectify(typ,l);
         SetGeneratorsOfField(l,QRl.generator);
       od;
     fi;
