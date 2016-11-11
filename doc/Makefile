@@ -134,14 +134,17 @@ manual.six: qaos.six
 mods:
 	chmod a+rX *
 
-clean:
-	$(RM) *.[cgk]idx *.aux *.cp *.cps *.dvi *.dvi-x *.fn *.ky	\
-	*.kys *.latexi *.log *.orig *.pdf *.pdf-x *.pg *.rej		\
+clean: preclean
+	$(RM) *.pdf *.six *.html
+
+preclean:
+	$(RM) *.[cgk]idx *.aux *.cp *.cps *.dvi *.dvi-x *.fn *.ky \
+	*.kys *.latexi *.log *.orig *.pdf-x *.pg *.rej		\
 	*.tmplatexi *.toc *.tp *.vr qaos.*.bak qaos.[cgk]ind 	\
 	qaos.ilg qaos.ind qaos.latexi*~* qaos.out 	\
 	qaos.idx qaos.tmplatexi1 qaostmp.texi texput.log	\
-	thumb*.png thumbdta.tex *.tpt *.tmp *.html *.info *.fns \
-	*.vrx *.fnx *.tex *.ltx *.xml *.six *.lat xx*
+	thumb*.png thumbdta.tex *.tpt *.tmp *.info *.fns \
+	*.vrx *.fnx *.tex *.ltx *.xml *.lat xx*
 	$(RM) -R auto
 
 makeinfo:
