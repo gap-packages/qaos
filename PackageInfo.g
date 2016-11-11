@@ -7,8 +7,8 @@ SetPackageInfo( rec(
 
 PackageName := "qaos",
 Subtitle := "Interfacing the QaoS database from GAP",
-Version := "1.2",
-Date := "25/02/2016",
+Version := "1.3",
+Date := "11/11/2016",
 
 SourceRepository := rec(
                          Type := "git",
@@ -20,8 +20,8 @@ README_URL      := Concatenation( ~.PackageWWWHome, "/README" ),
 PackageInfoURL  := Concatenation( ~.PackageWWWHome, "/PackageInfo.g" ),
 ArchiveURL      := Concatenation( ~.SourceRepository.URL,
                                  "/releases/download/v", ~.Version,
-                                 "/", ~.PackageName ,"-", ~.Version ),
-ArchiveFormats := ".tar.gz .tar.bz2",
+                                 "/", ~.PackageName, "-", ~.Version ),
+ArchiveFormats := ".tar.gz",
 
 Persons := [
   rec(
