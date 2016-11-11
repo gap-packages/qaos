@@ -1,4 +1,3 @@
-# Generated automatically from Makefile.in by configure.
 infodir = $(prefix)/info
 srcdir = .
 subdir = doc
