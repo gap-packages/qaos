@@ -1,0 +1,33 @@
+<Chapter><Heading>Concept</Heading>
+
+&QaoS; serves as gateway within &GAP; to the &QaoS; databases of Algebraic Objects
+in Berlin.  The database frontend is able to output internal data in a
+&GAP;-conform format.  This &GAP; package both triggers the database and retrieves
+the data.  Beyond that, it is also able to retransform received information into
+&GAP; objects which then could be used in the `normal way'.
+<P/>
+
+&QaoS; itself is a backend/frontend combination of an SQL database which is
+designed to grant public anonymous access via HTTP for reading operations, and
+restricted access via HTTP and TCP/IP for writing operations.
+<P/>
+
+The package functionality is partly driven by external utilities.  At the moment
+we support cURL only.  cURL is used for network communication, HTTP GET and POST
+requests and reading results from the network socket, while the &GAP; part is used
+for content dependent operations.
+<P/>
+
+Data for Transitive Groups has been taken from the current &GAP; distribution.  We
+like to thank Alexander Hulpke for his permission to offer transitive group data
+in our databases.
+
+<List>
+<Item>
+Alexander Hulpke,
+Constructing Transitive Permutation Groups;
+J. Symb. Comp. 39 (2005), 1-30.
+</Item>
+</List>
+
+</Chapter>

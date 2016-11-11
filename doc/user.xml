@@ -1,0 +1,332 @@
+<Chapter><Heading>User Functions</Heading>
+
+&QaoS; provides some user functions to obtain information from the databases.
+Currently, we support queries for transitive groups and algebraic number
+fields.  The corresponding commands are <Ref Func="QaosTransitiveGroup"
+Style="Text"/> and <Ref Func="QaosNumberField" Style="Text"/>.
+
+<Section><Heading>Retrieve objects matching a query</Heading>
+
+<ManSection>
+<Func Name="QaosTransitiveGroup" Arg="query, [, optarg]"/>
+<Description>
+  Return transitive groups matching <A>query</A>.
+The amount of results is limited by the global variable <Ref Var="QaosDefaultLimit" Style="Text"/>.
+
+Optional argument <A>optarg</A> is a record with some of the following
+components:
+<List>
+<Item><C>Action</C> (string)
+  <List>
+  <Item>determine an action to perform on <A>query</A></Item>
+  <Item>default value: "query"</Item>
+  <Item>possible values: "query", "count"</Item>
+  </List>
+</Item>
+
+<Item><C>ColGroups</C> (list of strings)
+  <List>
+  <Item>determine which result groups should be returned; results of &QaoS; are
+  usually grouped by a so-called `column group'.  In the web interface these
+  column groups are choosable by checking the corresponding name under the text
+  field for the query.</Item>
+  <Item>default value: ["size","props","perm-struct"]</Item>
+  <Item>possible values:
+  combinations of "size", "props", "perm-struct", "fp-struct"</Item>
+  </List>
+</Item>
+
+<Item><C>Limit</C> (integer/string)
+  <List>
+  <Item>determine how many results are retrieved (maximally)</Item>
+  <Item>default value: <Ref Var="QaosDefaultLimit" Style="Text"/></Item>
+  <Item>possible values: any positive integer or "all"</Item>
+  </List>
+</Item>
+
+<Item><C>Offset</C> (integer/string)
+  <List>
+  <Item>determine an offset on the set of results, this may be used to
+  sequentially retrieve blocks of results.</Item>
+  <Item>default value: 0</Item>
+  <Item>possible values: any non-negative integer</Item>
+  </List>
+</Item>
+</List>
+</Description>
+</ManSection>
+
+<ManSection>
+<Func Name="QaosNumberField" Arg="query, [, optarg]"/>
+<Description>
+  Return number fields matching <A>query</A>.
+The amount of results is limited by the global variable <Ref Var="QaosDefaultLimit" Style="Text"/>.
+
+Optional argument <A>optarg</A> is a record with some of the following
+components:
+<List>
+<Item><C>Action</C> (string)
+  <List>
+  <Item>determine an action to perform on <A>query</A></Item>
+  <Item>default value: "query"</Item>
+  <Item>possible values: "query", "count"</Item>
+  </List>
+</Item>
+
+<Item><C>ColGroups</C> (list of strings)
+  <List>
+  <Item>determine which result groups should be returned; results of &QaoS; are
+  usually grouped by a so-called `column group'.  In the web interface these
+  column groups are choosable by checking the corresponding name under the text
+  field for the query.</Item>
+  <Item>default value: ["size","struct","clsgroup","galgroup"]</Item>
+  <Item>possible values:
+  combinations of "size", "struct", "clsgroup", "galgroup", "galprops"</Item>
+  </List>
+</Item>
+
+<Item><C>Limit</C> (integer/string)
+  <List>
+  <Item>determine how many results are retrieved (maximally)</Item>
+  <Item>default value: <Ref Var="QaosDefaultLimit" Style="Text"/></Item>
+  <Item>possible values: any positive integer or "all"</Item>
+  </List>
+</Item>
+
+<Item><C>Offset</C> (integer/string)
+  <List>
+  <Item>determine an offset on the set of results, this may be used to
+  sequentially retrieve blocks of results.</Item>
+  <Item>default value: 0</Item>
+  <Item>possible values: any non-negative integer</Item>
+  </List>
+</Item>
+</List>
+</Description>
+</ManSection>
+
+<ManSection>
+<Var Name="QaosDefaultLimit"/>
+<Description>
+An Integer or String.
+  Determine the (maximal) amount of results returned in a query.
+Usually, this can be overridden with the <C>Limit</C>-component in optargs.
+
+The default value is 25.
+
+The value can be any positive integer or the string "all", in which case no
+limit is set and all results are returned.
+
+<E>CAUTION</E>: Setting this variable to "all" may result in exhaustive use of memory,
+network bandwidth, and time.  Therefore, always consider to perform the count
+action on a query before loading all of the results.  The database of number
+fields contains more than 1.35 million number field objects.  Downloading them
+all means retrieving a string of approx. 1.8 GB length!!!
+</Description>
+</ManSection>
+
+
+The following examples show their usage:
+
+Query for transitive groups of degree 4.
+<Example>
+<![CDATA[
+gap> QaosTransitiveGroup("d4");
+#I Retrieved 5 Transitive Groups.
+#I (C) 2004-2005 QaoS developers <kantdb@math.tu-berlin.de>,
+#I The Kant Project <kant@math.tu-berlin.de>
+#I qaos--dev--1.0--patch-32
+#I 2005-08-29 07:54:18 UTC
+<collection from database: 5 transitive groups; "d4">
+]]>
+</Example>
+
+Count transitive groups of degree 8.
+<Example>
+<![CDATA[
+gap> QaosTransitiveGroup("d8",rec(Action:="count"));
+#I (C) 2004-2005 QaoS developers <kantdb@math.tu-berlin.de>,
+#I The Kant Project <kant@math.tu-berlin.de>
+#I qaos--dev--1.0--patch-33
+#I 2005-08-29 10:04:49 UTC
+50 transitive group satisfy "d8"
+]]>
+</Example>
+
+Retrieve the first 25 transitive groups of degree 8.
+<Example>
+<![CDATA[
+gap> q1:=QaosTransitiveGroup("d8");
+#I Retrieved 25 Transitive Groups.
+#I (C) 2004-2005 QaoS developers <kantdb@math.tu-berlin.de>,
+#I The Kant Project <kant@math.tu-berlin.de>
+#I qaos--dev--1.0--patch-33
+#I 2005-08-29 10:08:50 UTC
+<collection from database: 25 transitive groups; "d8">
+]]>
+</Example>
+
+Now retrieve the next 25 results.
+<Example>
+<![CDATA[
+gap> q2:=QaosTransitiveGroup("d8",rec(Offset:=25));
+#I Retrieved 25 Transitive Groups.
+#I (C) 2004-2005 QaoS developers <kantdb@math.tu-berlin.de>,
+#I The Kant Project <kant@math.tu-berlin.de>
+#I qaos--dev--1.0--patch-33
+#I 2005-08-29 10:09:41 UTC
+<collection from database: 25 transitive groups; "d8">
+]]>
+</Example>
+
+Retrieve number fields of degree 4.
+<Example>
+<![CDATA[
+gap> QaosNumberField("d4");
+#I Retrieved 25 Algebraic Number Fields.
+#I (C) 2004-2005 QaoS developers <kantdb@math.tu-berlin.de>,
+#I The Kant Project <kant@math.tu-berlin.de>
+#I qaos--dev--1.0--patch-32
+#I 2005-08-29 07:55:11 UTC
+<collection from database: 25 number fields; "d4">
+]]>
+</Example>
+
+When either of these functions is called with no arguments a short general help
+is displayed:
+<Example>
+<![CDATA[
+gap> QaosTransitiveGroup();
+QaosTransitiveGroup(<query> [, <optarg>]) -> <result>
+ 
+Searches the Algebraic Objects Database in Berlin.
+The query string equals the keyword search method in the web surface.
+See
+<URL>http://qaos.math.tu-berlin.de/qaos/query.scm?type=trnsg&action=Help</URL>
+for more information about the syntax and keywords.
+ 
+Note: You must have `curl' (see <URL>http://curl.haxx.se</URL>) installed and properly
+configured in order to use &QaoS; from within &GAP;.
+ 
+true
+]]>
+</Example>
+
+In this manual we also refer to the help screen of the web interface to obtain
+more detailed information about the query string.
+
+
+</Section>
+
+<Section><Heading>Examine the contents of a database collection</Heading>
+
+In order to actually see the information there is a function called
+<Ref Func="QaosResult" Style="Text"/> which displays a list of retrieved objects.
+
+<ManSection>
+<Func Name="QaosResult" Arg="database-collection"/>
+<Description>
+Return the list of retrieved objects in <A>database-collection</A>.
+
+This function actually reveals the result of a query.
+</Description>
+</ManSection>
+
+<ManSection>
+<Func Name="QaosResult" Arg=" database-count"/>
+<Description>
+Return the (non-negative) integer of a count query (see <C>Action</C>-component
+in optarg record). 
+</Description>
+</ManSection>
+
+
+Let us examine the groups behind a query for degree 8 abelian transitive groups.
+<Example>
+<![CDATA[
+gap> Q:=QaosTransitiveGroup("d8 abelian");
+#I Retrieved 3 Transitive Groups.
+#I (C) 2004-2005 QaoS developers <kantdb@math.tu-berlin.de>,
+#I The Kant Project <kant@math.tu-berlin.de>
+#I qaos--dev--1.0--patch-32
+#I 2005-08-29 08:01:30 UTC
+<collection from database: 3 transitive groups; "d8 abelian">
+gap>
+gap> QaosResult(Q);
+[ <transitive group from database: C(8) = 8; id 39>,
+  <transitive group from database: 4[x]2; id 40>,
+  <transitive group from database: E(8) = 2[x]2[x]2; id 41> ]
+]]>
+</Example>
+
+To use the retrieved group objects in &GAP; you may use the <Ref Func="AsGroup" Style="Text"/>
+operation on a result.
+
+<ManSection>
+<Func Name="AsGroup" Arg="database-group-object"/>
+<Description>
+Return the &GAP; group object representing <A>database-group-object</A>.
+
+If <A>database-group-object</A> cannot be turned into a group, return <K>fail</K>.
+</Description>
+</ManSection>
+
+From the above example, let us &GAP;-ify the third group object.
+<Example>
+<![CDATA[
+gap> AsGroup(QaosResult(Q)[3]);
+Group([ (1,8)(2,3)(4,5)(6,7), (1,3)(2,8)(4,6)(5,7), (1,5)(2,6)(3,7)(4,8) ])
+]]>
+</Example>
+
+
+For number field objects the corresponding operation is <Ref Func="AsField" Style="Text"/>.
+
+<ManSection>
+<Func Name="AsField" Arg="database-field-object"/>
+<Description>
+Return the &GAP; field object representing <A>database-field-object</A>.
+
+If <A>database-field-object</A> cannot be turned into a field, return
+<K>fail</K>.
+</Description>
+</ManSection>
+
+Consider following example for number fields (number fields of degree 5 with
+absolute discrimnant between 100000 and 120000 and non-trivial class group):
+<Example>
+<![CDATA[
+gap> R:=QaosNumberField("d5 |disc| >=100000 |disc| <=120000 cn>1");
+#I Retrieved 18 Algebraic Number Fields.
+#I (C) 2004-2005 QaoS developers <kantdb@math.tu-berlin.de>,
+#I The Kant Project <kant@math.tu-berlin.de>
+#I qaos--dev--1.0--patch-32
+#I 2005-08-29 08:32:35 UTC
+<collection from database: 18 number fields; "d5 |disc| >=100000 |disc| <=120000 cn>1">
+gap> QaosResult(R);
+[ <number field from database: x_1^5+x_1^4-2*x_1^2+7*x_1+1; id 843712>,
+  <number field from database: x_1^5+x_1^4+2*x_1^3-4*x_1^2+2*x_1-1; id 843791>,
+  <number field from database: x_1^5+2*x_1^4-2*x_1^3+2*x_1^2+x_1+4; id 843841>,
+  <number field from database: x_1^5+x_1^4+4*x_1^3+4*x_1-1; id 843892>,
+  <number field from database: x_1^5+x_1^4+x_1^3+4*x_1^2+3*x_1-1; id 843894>,
+  <number field from database: x_1^5+x_1^4-3*x_1^3-2*x_1^2+6*x_1-4; id 843897>,
+  <number field from database: x_1^5+2*x_1^3+2*x_1^2+4*x_1+1; id 843930>,
+  <number field from database: x_1^5+2*x_1^4+6*x_1^3+4*x_1^2+4*x_1-1; id 843955>,
+  <number field from database: x_1^5+x_1^4-4*x_1^2+2*x_1+1; id 844004>,
+  <number field from database: x_1^5+4*x_1^2+1; id 844011>,
+  <number field from database: x_1^5+2*x_1^4+3*x_1^3+2*x_1^2-3*x_1+1; id 844036>,
+  <number field from database: x_1^5+x_1^4+3*x_1^3+2*x_1^2+8*x_1-1; id 844043>,
+  <number field from database: x_1^5+x_1^4+5*x_1^3+5*x_1^2+2*x_1+1; id 844062>,
+  <number field from database: x_1^5+2*x_1^4-3*x_1^3+6*x_1^2-3*x_1+1; id 844066>,
+  <number field from database: x_1^5+x_1^4-x_1^3-4*x_1^2+5*x_1-1; id 844082>,
+  <number field from database: x_1^5+2*x_1^4-x_1^3-3*x_1^2+4*x_1+1; id 844107>,
+  <number field from database: x_1^5+x_1^4+2*x_1^3+3*x_1^2-2*x_1+1; id 844110>,
+  <number field from database: x_1^5+2*x_1^4-6*x_1^3+5*x_1^2-2*x_1+1; id 844145> ]
+gap> AsField(QaosResult(R)[4]);
+<field in characteristic 0>
+]]>
+</Example>
+
+
+</Section>
+</Chapter>
