@@ -1,0 +1,93 @@
+<Chapter><Heading>Installation</Heading>
+
+Installation of the package is fairly easy.
+Fetch the latest qaos package at
+
+<URL>http://www.math.tu-berlin.de/~kant/download/gap/qaos.tar.bz2</URL>
+
+or via FTP at
+
+<URL>ftp://ftp.math.tu-berlin.de/pub/algebra/Kant/contrib/gap/</URL>
+
+
+<Section><Heading>Installation of the &GAP; package</Heading>
+
+If you have permission to add files to the installation of &GAP; 4 on your system
+you may install the qaos package into the <File>pkg/</File> subdirectory of the
+&GAP; installation tree.
+
+<Example>
+<![CDATA[
+shell> cd /path/to/GAP4/installation/tree/
+shell> cd pkg/
+shell> tar xjf /path/to/qaos.tar.bz2
+]]>
+</Example>
+
+This yields another subdirectory called <File>qaos/</File> with all the necessary
+files.
+<P/>
+
+If you do not have the permission to install the package globally just install
+it to some private area, for example your home directory.
+
+<Example>
+<![CDATA[
+shell> cd ~
+shell> mkdir mygap
+shell> mkdir mygap/pkg
+shell> cd mygap/pkg/
+shell> tar xjf /path/to/qaos.tar.bz2
+]]>
+</Example>
+
+Now whenever you start &GAP;, be sure to pass the <File>mygap/</File> directory to the
+package search path of &GAP;.
+
+<Example>
+<![CDATA[
+shell> gap -l ";$HOME/mygap"
+]]>
+</Example>
+
+</Section>
+
+
+<Section><Heading>Installation of cURL</Heading>
+
+Go to <URL>http://curl.haxx.se</URL> and fetch the latest release of cURL for your
+system.  Install it.  Refer to cURL installation instructions if necessary.
+<P/>
+
+If you have downloaded precompiled binary packages for your system and none of
+them seem to work, you may also try installing cURL via sources.
+Just fetch the source archive, unpack it somewhere and say
+
+<Example>
+<![CDATA[
+shell> ./configure && make && make install
+]]>
+</Example>
+
+Finally, you can test for a successful curl installation by
+
+<Example>
+<![CDATA[
+shell> curl http://curl.haxx.se
+]]>
+</Example>
+
+If this command spits out lots of HTML into your terminal everything is
+installed properly.  If not, adjust your <C>$PATH</C> variable such that 
+
+<Example>
+<![CDATA[
+shell> which curl
+]]>
+</Example>
+
+finds a valid path to the curl binary.
+
+
+</Section>
+</Chapter>
