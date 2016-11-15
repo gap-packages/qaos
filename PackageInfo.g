@@ -7,8 +7,8 @@ SetPackageInfo( rec(
 
 PackageName := "qaos",
 Subtitle := "Interfacing the QaoS database from GAP",
-Version := "1.3",
-Date := "11/11/2016",
+Version := "1.4",
+Date := "15/11/2016",
 
 SourceRepository := rec(
                          Type := "git",
@@ -89,7 +89,7 @@ PackageDoc := rec(
   BookName  := "QaoS",
   ArchiveURLSubset := ["doc"],
   HTMLStart := "doc/qaos.html",
-  PDFFile   := "doc/qaos.pdf",
+  PDFFile   := "doc/manual.pdf",
   SixFile   := "doc/manual.six",
   LongTitle := "QaoS - Querying Algebraic Objects System",
   Autoload  := true),
