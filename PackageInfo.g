@@ -90,7 +90,7 @@ PackageDoc := rec(
   ArchiveURLSubset := ["doc"],
   HTMLStart := "doc/qaos.html",
   PDFFile   := "doc/manual.pdf",
-  SixFile   := "doc/qaos.six",
+  SixFile   := "doc/manual.six",
   LongTitle := "QaoS - Querying Algebraic Objects System",
   Autoload  := true),
 
