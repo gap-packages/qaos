@@ -1,0 +1,81 @@
+  
+  [1X2 [33X[0;0YInstallation[133X[101X
+  
+  [33X[0;0YInstallation of the package is fairly easy. Fetch the latest qaos package at
+  [7Xhttp://www.math.tu-berlin.de/~kant/download/gap/qaos.tar.bz2[107X  or  via FTP at
+  [7Xftp://ftp.math.tu-berlin.de/pub/algebra/Kant/contrib/gap/[107X[133X
+  
+  
+  [1X2.1 [33X[0;0YInstallation of the [5XGAP[105X[101X[1X package[133X[101X
+  
+  [33X[0;0YIf  you  have  permission  to add files to the installation of [5XGAP[105X 4 on your
+  system  you  may  install the qaos package into the [11Xpkg/[111X subdirectory of the
+  [5XGAP[105X installation tree.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X[128X[104X
+    [4X[28Xshell> cd /path/to/GAP4/installation/tree/[128X[104X
+    [4X[28Xshell> cd pkg/[128X[104X
+    [4X[28Xshell> tar xjf /path/to/qaos.tar.bz2[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YThis yields another subdirectory called [11Xqaos/[111X with all the necessary files.[133X
+  
+  [33X[0;0YIf  you  do  not  have  the  permission to install the package globally just
+  install it to some private area, for example your home directory.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X[128X[104X
+    [4X[28Xshell> cd ~[128X[104X
+    [4X[28Xshell> mkdir mygap[128X[104X
+    [4X[28Xshell> mkdir mygap/pkg[128X[104X
+    [4X[28Xshell> cd mygap/pkg/[128X[104X
+    [4X[28Xshell> tar xjf /path/to/qaos.tar.bz2[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YNow  whenever  you  start  [5XGAP[105X,  be sure to pass the [11Xmygap/[111X directory to the
+  package search path of [5XGAP[105X.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X[128X[104X
+    [4X[28Xshell> gap -l ";$HOME/mygap"[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  
+  [1X2.2 [33X[0;0YInstallation of cURL[133X[101X
+  
+  [33X[0;0YGo  to  [7Xhttp://curl.haxx.se[107X  and  fetch  the latest release of cURL for your
+  system. Install it. Refer to cURL installation instructions if necessary.[133X
+  
+  [33X[0;0YIf  you have downloaded precompiled binary packages for your system and none
+  of  them  seem  to  work, you may also try installing cURL via sources. Just
+  fetch the source archive, unpack it somewhere and say[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X[128X[104X
+    [4X[28Xshell> ./configure && make && make install[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YFinally, you can test for a successful curl installation by[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X[128X[104X
+    [4X[28Xshell> curl http://curl.haxx.se[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YIf  this  command  spits  out  lots of HTML into your terminal everything is
+  installed properly. If not, adjust your [10X$PATH[110X variable such that[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X[128X[104X
+    [4X[28Xshell> which curl[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0Yfinds a valid path to the curl binary.[133X
+  

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head>
+<title>GAP (QaoS) - Chapter 2: Installation</title>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<meta name="generator" content="GAPDoc2HTML" />
+<link rel="stylesheet" type="text/css" href="manual.css" />
+<script src="manual.js" type="text/javascript"></script>
+<script type="text/javascript">overwriteStyle();</script>
+</head>
+<body class="chap2"  onload="jscontent()">
+
+
+<div class="chlinktop"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chapInd.html">Ind</a>  </div>
+
+<div class="chlinkprevnexttop">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap1.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap3.html">[Next Chapter]</a>&nbsp;  </div>
+
+<p id="mathjaxlink" class="pcenter"><a href="chap2_mj.html">[MathJax on]</a></p>
+<p><a id="X8360C04082558A12" name="X8360C04082558A12"></a></p>
+<div class="ChapSects"><a href="chap2.html#X8360C04082558A12">2 <span class="Heading">Installation</span></a>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap2.html#X8220293680468809">2.1 <span class="Heading">Installation of the <strong class="pkg">GAP</strong> package</span></a>
+</span>
+</div>
+<div class="ContSect"><span class="tocline"><span class="nocss">&nbsp;</span><a href="chap2.html#X7D2C3F987BDFD6B8">2.2 <span class="Heading">Installation of cURL</span></a>
+</span>
+</div>
+</div>
+
+<h3>2 <span class="Heading">Installation</span></h3>
+
+<p>Installation of the package is fairly easy. Fetch the latest qaos package at <span class="URL"><a href="http://www.math.tu-berlin.de/~kant/download/gap/qaos.tar.bz2">http://www.math.tu-berlin.de/~kant/download/gap/qaos.tar.bz2</a></span> or via FTP at <span class="URL"><a href="ftp://ftp.math.tu-berlin.de/pub/algebra/Kant/contrib/gap/">ftp://ftp.math.tu-berlin.de/pub/algebra/Kant/contrib/gap/</a></span></p>
+
+<p><a id="X8220293680468809" name="X8220293680468809"></a></p>
+
+<h4>2.1 <span class="Heading">Installation of the <strong class="pkg">GAP</strong> package</span></h4>
+
+<p>If you have permission to add files to the installation of <strong class="pkg">GAP</strong> 4 on your system you may install the qaos package into the <code class="file">pkg/</code> subdirectory of the <strong class="pkg">GAP</strong> installation tree.</p>
+
+
+<div class="example"><pre>
+
+shell&gt; cd /path/to/GAP4/installation/tree/
+shell&gt; cd pkg/
+shell&gt; tar xjf /path/to/qaos.tar.bz2
+
+</pre></div>
+
+<p>This yields another subdirectory called <code class="file">qaos/</code> with all the necessary files.</p>
+
+<p>If you do not have the permission to install the package globally just install it to some private area, for example your home directory.</p>
+
+
+<div class="example"><pre>
+
+shell&gt; cd ~
+shell&gt; mkdir mygap
+shell&gt; mkdir mygap/pkg
+shell&gt; cd mygap/pkg/
+shell&gt; tar xjf /path/to/qaos.tar.bz2
+
+</pre></div>
+
+<p>Now whenever you start <strong class="pkg">GAP</strong>, be sure to pass the <code class="file">mygap/</code> directory to the package search path of <strong class="pkg">GAP</strong>.</p>
+
+
+<div class="example"><pre>
+
+shell&gt; gap -l ";$HOME/mygap"
+
+</pre></div>
+
+<p><a id="X7D2C3F987BDFD6B8" name="X7D2C3F987BDFD6B8"></a></p>
+
+<h4>2.2 <span class="Heading">Installation of cURL</span></h4>
+
+<p>Go to <span class="URL"><a href="http://curl.haxx.se">http://curl.haxx.se</a></span> and fetch the latest release of cURL for your system. Install it. Refer to cURL installation instructions if necessary.</p>
+
+<p>If you have downloaded precompiled binary packages for your system and none of them seem to work, you may also try installing cURL via sources. Just fetch the source archive, unpack it somewhere and say</p>
+
+
+<div class="example"><pre>
+
+shell&gt; ./configure &amp;&amp; make &amp;&amp; make install
+
+</pre></div>
+
+<p>Finally, you can test for a successful curl installation by</p>
+
+
+<div class="example"><pre>
+
+shell&gt; curl http://curl.haxx.se
+
+</pre></div>
+
+<p>If this command spits out lots of HTML into your terminal everything is installed properly. If not, adjust your <code class="code">$PATH</code> variable such that</p>
+
+
+<div class="example"><pre>
+
+shell&gt; which curl
+
+</pre></div>
+
+<p>finds a valid path to the curl binary.</p>
+
+
+<div class="chlinkprevnextbot">&nbsp;<a href="chap0.html">[Top of Book]</a>&nbsp;  <a href="chap0.html#contents">[Contents]</a>&nbsp;  &nbsp;<a href="chap1.html">[Previous Chapter]</a>&nbsp;  &nbsp;<a href="chap3.html">[Next Chapter]</a>&nbsp;  </div>
+
+
+<div class="chlinkbot"><span class="chlink1">Goto Chapter: </span><a href="chap0.html">Top</a>  <a href="chap1.html">1</a>  <a href="chap2.html">2</a>  <a href="chap3.html">3</a>  <a href="chapInd.html">Ind</a>  </div>
+
+<hr />
+<p class="foot">generated by <a href="http://www.math.rwth-aachen.de/~Frank.Luebeck/GAPDoc">GAPDoc2HTML</a></p>
+</body>
+</html>

@@ -1,0 +1,314 @@
+  
+  [1X3 [33X[0;0YUser Functions[133X[101X
+  
+  [33X[0;0Y[5XQaoS[105X  provides some user functions to obtain information from the databases.
+  Currently,  we  support  queries  for transitive groups and algebraic number
+  fields.  The  corresponding  commands  are  [2XQaosTransitiveGroup[102X  ([14X3.1-1[114X) and
+  [2XQaosNumberField[102X ([14X3.1-2[114X).[133X
+  
+  
+  [1X3.1 [33X[0;0YRetrieve objects matching a query[133X[101X
+  
+  [1X3.1-1 QaosTransitiveGroup[101X
+  
+  [29X[2XQaosTransitiveGroup[102X( [3Xquery[103X[, [3Xoptarg[103X] ) [32X function
+  
+  [33X[0;0YReturn transitive groups matching [3Xquery[103X. The amount of results is limited by
+  the  global variable [2XQaosDefaultLimit[102X ([14X3.1-3[114X). Optional argument [3Xoptarg[103X is a
+  record with some of the following components:[133X
+  
+  [30X    [33X[0;6Y[10XAction[110X (string)[133X
+  
+        [30X    [33X[0;12Ydetermine an action to perform on [3Xquery[103X[133X
+  
+        [30X    [33X[0;12Ydefault value: "query"[133X
+  
+        [30X    [33X[0;12Ypossible values: "query", "count"[133X
+  
+  [30X    [33X[0;6Y[10XColGroups[110X (list of strings)[133X
+  
+        [30X    [33X[0;12Ydetermine  which  result  groups  should be returned; results of
+              [5XQaoS[105X  are  usually grouped by a so-called `column group'. In the
+              web  interface these column groups are choosable by checking the
+              corresponding name under the text field for the query.[133X
+  
+        [30X    [33X[0;12Ydefault value: ["size","props","perm-struct"][133X
+  
+        [30X    [33X[0;12Ypossible values: combinations of "size", "props", "perm-struct",
+              "fp-struct"[133X
+  
+  [30X    [33X[0;6Y[10XLimit[110X (integer/string)[133X
+  
+        [30X    [33X[0;12Ydetermine how many results are retrieved (maximally)[133X
+  
+        [30X    [33X[0;12Ydefault value: [2XQaosDefaultLimit[102X ([14X3.1-3[114X)[133X
+  
+        [30X    [33X[0;12Ypossible values: any positive integer or "all"[133X
+  
+  [30X    [33X[0;6Y[10XOffset[110X (integer/string)[133X
+  
+        [30X    [33X[0;12Ydetermine  an  offset on the set of results, this may be used to
+              sequentially retrieve blocks of results.[133X
+  
+        [30X    [33X[0;12Ydefault value: 0[133X
+  
+        [30X    [33X[0;12Ypossible values: any non-negative integer[133X
+  
+  [1X3.1-2 QaosNumberField[101X
+  
+  [29X[2XQaosNumberField[102X( [3Xquery[103X[, [3Xoptarg[103X] ) [32X function
+  
+  [33X[0;0YReturn number fields matching [3Xquery[103X. The amount of results is limited by the
+  global  variable  [2XQaosDefaultLimit[102X  ([14X3.1-3[114X).  Optional  argument [3Xoptarg[103X is a
+  record with some of the following components:[133X
+  
+  [30X    [33X[0;6Y[10XAction[110X (string)[133X
+  
+        [30X    [33X[0;12Ydetermine an action to perform on [3Xquery[103X[133X
+  
+        [30X    [33X[0;12Ydefault value: "query"[133X
+  
+        [30X    [33X[0;12Ypossible values: "query", "count"[133X
+  
+  [30X    [33X[0;6Y[10XColGroups[110X (list of strings)[133X
+  
+        [30X    [33X[0;12Ydetermine  which  result  groups  should be returned; results of
+              [5XQaoS[105X  are  usually grouped by a so-called `column group'. In the
+              web  interface these column groups are choosable by checking the
+              corresponding name under the text field for the query.[133X
+  
+        [30X    [33X[0;12Ydefault value: ["size","struct","clsgroup","galgroup"][133X
+  
+        [30X    [33X[0;12Ypossible  values:  combinations of "size", "struct", "clsgroup",
+              "galgroup", "galprops"[133X
+  
+  [30X    [33X[0;6Y[10XLimit[110X (integer/string)[133X
+  
+        [30X    [33X[0;12Ydetermine how many results are retrieved (maximally)[133X
+  
+        [30X    [33X[0;12Ydefault value: [2XQaosDefaultLimit[102X ([14X3.1-3[114X)[133X
+  
+        [30X    [33X[0;12Ypossible values: any positive integer or "all"[133X
+  
+  [30X    [33X[0;6Y[10XOffset[110X (integer/string)[133X
+  
+        [30X    [33X[0;12Ydetermine  an  offset on the set of results, this may be used to
+              sequentially retrieve blocks of results.[133X
+  
+        [30X    [33X[0;12Ydefault value: 0[133X
+  
+        [30X    [33X[0;12Ypossible values: any non-negative integer[133X
+  
+  [1X3.1-3 QaosDefaultLimit[101X
+  
+  [29X[2XQaosDefaultLimit[102X[32X global variable
+  
+  [33X[0;0YAn  Integer or String. Determine the (maximal) amount of results returned in
+  a  query.  Usually,  this  can  be  overridden  with  the [10XLimit[110X-component in
+  optargs.  The  default value is 25. The value can be any positive integer or
+  the  string  "all",  in  which  case  no  limit  is  set and all results are
+  returned.  [13XCAUTION[113X:  Setting this variable to "all" may result in exhaustive
+  use  of  memory,  network bandwidth, and time. Therefore, always consider to
+  perform  the  count action on a query before loading all of the results. The
+  database  of  number  fields  contains  more  than 1.35 million number field
+  objects.  Downloading  them  all means retrieving a string of approx. 1.8 GB
+  length!!![133X
+  
+  [33X[0;0YThe  following  examples  show  their  usage: Query for transitive groups of
+  degree 4.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X[128X[104X
+    [4X[25Xgap>[125X [27XQaosTransitiveGroup("d4");[127X[104X
+    [4X[28X#I Retrieved 5 Transitive Groups.[128X[104X
+    [4X[28X#I (C) 2004-2005 QaoS developers <kantdb@math.tu-berlin.de>,[128X[104X
+    [4X[28X#I The Kant Project <kant@math.tu-berlin.de>[128X[104X
+    [4X[28X#I qaos--dev--1.0--patch-32[128X[104X
+    [4X[28X#I 2005-08-29 07:54:18 UTC[128X[104X
+    [4X[28X<collection from database: 5 transitive groups; "d4">[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YCount transitive groups of degree 8.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X[128X[104X
+    [4X[25Xgap>[125X [27XQaosTransitiveGroup("d8",rec(Action:="count"));[127X[104X
+    [4X[28X#I (C) 2004-2005 QaoS developers <kantdb@math.tu-berlin.de>,[128X[104X
+    [4X[28X#I The Kant Project <kant@math.tu-berlin.de>[128X[104X
+    [4X[28X#I qaos--dev--1.0--patch-33[128X[104X
+    [4X[28X#I 2005-08-29 10:04:49 UTC[128X[104X
+    [4X[28X50 transitive group satisfy "d8"[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YRetrieve the first 25 transitive groups of degree 8.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X[128X[104X
+    [4X[25Xgap>[125X [27Xq1:=QaosTransitiveGroup("d8");[127X[104X
+    [4X[28X#I Retrieved 25 Transitive Groups.[128X[104X
+    [4X[28X#I (C) 2004-2005 QaoS developers <kantdb@math.tu-berlin.de>,[128X[104X
+    [4X[28X#I The Kant Project <kant@math.tu-berlin.de>[128X[104X
+    [4X[28X#I qaos--dev--1.0--patch-33[128X[104X
+    [4X[28X#I 2005-08-29 10:08:50 UTC[128X[104X
+    [4X[28X<collection from database: 25 transitive groups; "d8">[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YNow retrieve the next 25 results.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X[128X[104X
+    [4X[25Xgap>[125X [27Xq2:=QaosTransitiveGroup("d8",rec(Offset:=25));[127X[104X
+    [4X[28X#I Retrieved 25 Transitive Groups.[128X[104X
+    [4X[28X#I (C) 2004-2005 QaoS developers <kantdb@math.tu-berlin.de>,[128X[104X
+    [4X[28X#I The Kant Project <kant@math.tu-berlin.de>[128X[104X
+    [4X[28X#I qaos--dev--1.0--patch-33[128X[104X
+    [4X[28X#I 2005-08-29 10:09:41 UTC[128X[104X
+    [4X[28X<collection from database: 25 transitive groups; "d8">[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YRetrieve number fields of degree 4.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X[128X[104X
+    [4X[25Xgap>[125X [27XQaosNumberField("d4");[127X[104X
+    [4X[28X#I Retrieved 25 Algebraic Number Fields.[128X[104X
+    [4X[28X#I (C) 2004-2005 QaoS developers <kantdb@math.tu-berlin.de>,[128X[104X
+    [4X[28X#I The Kant Project <kant@math.tu-berlin.de>[128X[104X
+    [4X[28X#I qaos--dev--1.0--patch-32[128X[104X
+    [4X[28X#I 2005-08-29 07:55:11 UTC[128X[104X
+    [4X[28X<collection from database: 25 number fields; "d4">[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YWhen  either  of these functions is called with no arguments a short general
+  help is displayed:[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X[128X[104X
+    [4X[25Xgap>[125X [27XQaosTransitiveGroup();[127X[104X
+    [4X[28XQaosTransitiveGroup(<query> [, <optarg>]) -> <result>[128X[104X
+    [4X[28X [128X[104X
+    [4X[28XSearches the Algebraic Objects Database in Berlin.[128X[104X
+    [4X[28XThe query string equals the keyword search method in the web surface.[128X[104X
+    [4X[28XSee[128X[104X
+    [4X[28X<URL>http://qaos.math.tu-berlin.de/qaos/query.scm?type=trnsg&action=Help</URL>[128X[104X
+    [4X[28Xfor more information about the syntax and keywords.[128X[104X
+    [4X[28X [128X[104X
+    [4X[28XNote: You must have `curl' (see <URL>http://curl.haxx.se</URL>) installed and properly[128X[104X
+    [4X[28Xconfigured in order to use &QaoS; from within &GAP;.[128X[104X
+    [4X[28X [128X[104X
+    [4X[28Xtrue[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YIn  this  manual  we  also  refer to the help screen of the web interface to
+  obtain more detailed information about the query string.[133X
+  
+  
+  [1X3.2 [33X[0;0YExamine the contents of a database collection[133X[101X
+  
+  [33X[0;0YIn  order  to  actually  see  the  information  there  is  a function called
+  [2XQaosResult[102X ([14X3.2-2[114X) which displays a list of retrieved objects.[133X
+  
+  [1X3.2-1 QaosResult[101X
+  
+  [29X[2XQaosResult[102X( [3Xdatabase-collection[103X ) [32X function
+  
+  [33X[0;0YReturn  the  list of retrieved objects in [3Xdatabase-collection[103X. This function
+  actually reveals the result of a query.[133X
+  
+  [1X3.2-2 QaosResult[101X
+  
+  [29X[2XQaosResult[102X( [3Xdatabase-count[103X ) [32X function
+  
+  [33X[0;0YReturn  the (non-negative) integer of a count query (see [10XAction[110X-component in
+  optarg record).[133X
+  
+  [33X[0;0YLet  us  examine  the  groups behind a query for degree 8 abelian transitive
+  groups.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X[128X[104X
+    [4X[25Xgap>[125X [27XQ:=QaosTransitiveGroup("d8 abelian");[127X[104X
+    [4X[28X#I Retrieved 3 Transitive Groups.[128X[104X
+    [4X[28X#I (C) 2004-2005 QaoS developers <kantdb@math.tu-berlin.de>,[128X[104X
+    [4X[28X#I The Kant Project <kant@math.tu-berlin.de>[128X[104X
+    [4X[28X#I qaos--dev--1.0--patch-32[128X[104X
+    [4X[28X#I 2005-08-29 08:01:30 UTC[128X[104X
+    [4X[28X<collection from database: 3 transitive groups; "d8 abelian">[128X[104X
+    [4X[28Xgap>[128X[104X
+    [4X[25Xgap>[125X [27XQaosResult(Q);[127X[104X
+    [4X[28X[ <transitive group from database: C(8) = 8; id 39>,[128X[104X
+    [4X[28X  <transitive group from database: 4[x]2; id 40>,[128X[104X
+    [4X[28X  <transitive group from database: E(8) = 2[x]2[x]2; id 41> ][128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YTo  use  the  retrieved group objects in [5XGAP[105X you may use the [2XAsGroup[102X ([14X3.2-3[114X)
+  operation on a result.[133X
+  
+  [1X3.2-3 AsGroup[101X
+  
+  [29X[2XAsGroup[102X( [3Xdatabase-group-object[103X ) [32X function
+  
+  [33X[0;0YReturn   the   [5XGAP[105X   group  object  representing  [3Xdatabase-group-object[103X.  If
+  [3Xdatabase-group-object[103X cannot be turned into a group, return [9Xfail[109X.[133X
+  
+  [33X[0;0YFrom the above example, let us [5XGAP[105X-ify the third group object.[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X[128X[104X
+    [4X[25Xgap>[125X [27XAsGroup(QaosResult(Q)[3]);[127X[104X
+    [4X[28XGroup([ (1,8)(2,3)(4,5)(6,7), (1,3)(2,8)(4,6)(5,7), (1,5)(2,6)(3,7)(4,8) ])[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  
+  [33X[0;0YFor number field objects the corresponding operation is [2XAsField[102X ([14X3.2-4[114X).[133X
+  
+  [1X3.2-4 AsField[101X
+  
+  [29X[2XAsField[102X( [3Xdatabase-field-object[103X ) [32X function
+  
+  [33X[0;0YReturn   the   [5XGAP[105X   field  object  representing  [3Xdatabase-field-object[103X.  If
+  [3Xdatabase-field-object[103X cannot be turned into a field, return [9Xfail[109X.[133X
+  
+  [33X[0;0YConsider following example for number fields (number fields of degree 5 with
+  absolute discrimnant between 100000 and 120000 and non-trivial class group):[133X
+  
+  [4X[32X  Example  [32X[104X
+    [4X[28X[128X[104X
+    [4X[25Xgap>[125X [27XR:=QaosNumberField("d5 |disc| >=100000 |disc| <=120000 cn>1");[127X[104X
+    [4X[28X#I Retrieved 18 Algebraic Number Fields.[128X[104X
+    [4X[28X#I (C) 2004-2005 QaoS developers <kantdb@math.tu-berlin.de>,[128X[104X
+    [4X[28X#I The Kant Project <kant@math.tu-berlin.de>[128X[104X
+    [4X[28X#I qaos--dev--1.0--patch-32[128X[104X
+    [4X[28X#I 2005-08-29 08:32:35 UTC[128X[104X
+    [4X[28X<collection from database: 18 number fields; "d5 |disc| >=100000 |disc| <=120000 cn>1">[128X[104X
+    [4X[25Xgap>[125X [27XQaosResult(R);[127X[104X
+    [4X[28X[ <number field from database: x_1^5+x_1^4-2*x_1^2+7*x_1+1; id 843712>,[128X[104X
+    [4X[28X  <number field from database: x_1^5+x_1^4+2*x_1^3-4*x_1^2+2*x_1-1; id 843791>,[128X[104X
+    [4X[28X  <number field from database: x_1^5+2*x_1^4-2*x_1^3+2*x_1^2+x_1+4; id 843841>,[128X[104X
+    [4X[28X  <number field from database: x_1^5+x_1^4+4*x_1^3+4*x_1-1; id 843892>,[128X[104X
+    [4X[28X  <number field from database: x_1^5+x_1^4+x_1^3+4*x_1^2+3*x_1-1; id 843894>,[128X[104X
+    [4X[28X  <number field from database: x_1^5+x_1^4-3*x_1^3-2*x_1^2+6*x_1-4; id 843897>,[128X[104X
+    [4X[28X  <number field from database: x_1^5+2*x_1^3+2*x_1^2+4*x_1+1; id 843930>,[128X[104X
+    [4X[28X  <number field from database: x_1^5+2*x_1^4+6*x_1^3+4*x_1^2+4*x_1-1; id 843955>,[128X[104X
+    [4X[28X  <number field from database: x_1^5+x_1^4-4*x_1^2+2*x_1+1; id 844004>,[128X[104X
+    [4X[28X  <number field from database: x_1^5+4*x_1^2+1; id 844011>,[128X[104X
+    [4X[28X  <number field from database: x_1^5+2*x_1^4+3*x_1^3+2*x_1^2-3*x_1+1; id 844036>,[128X[104X
+    [4X[28X  <number field from database: x_1^5+x_1^4+3*x_1^3+2*x_1^2+8*x_1-1; id 844043>,[128X[104X
+    [4X[28X  <number field from database: x_1^5+x_1^4+5*x_1^3+5*x_1^2+2*x_1+1; id 844062>,[128X[104X
+    [4X[28X  <number field from database: x_1^5+2*x_1^4-3*x_1^3+6*x_1^2-3*x_1+1; id 844066>,[128X[104X
+    [4X[28X  <number field from database: x_1^5+x_1^4-x_1^3-4*x_1^2+5*x_1-1; id 844082>,[128X[104X
+    [4X[28X  <number field from database: x_1^5+2*x_1^4-x_1^3-3*x_1^2+4*x_1+1; id 844107>,[128X[104X
+    [4X[28X  <number field from database: x_1^5+x_1^4+2*x_1^3+3*x_1^2-2*x_1+1; id 844110>,[128X[104X
+    [4X[28X  <number field from database: x_1^5+2*x_1^4-6*x_1^3+5*x_1^2-2*x_1+1; id 844145> ][128X[104X
+    [4X[25Xgap>[125X [27XAsField(QaosResult(R)[4]);[127X[104X
+    [4X[28X<field in characteristic 0>[128X[104X
+    [4X[28X[128X[104X
+  [4X[32X[104X
+  

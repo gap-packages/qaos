@@ -1,0 +1,25 @@
+  
+  [1X1 [33X[0;0YConcept[133X[101X
+  
+  [33X[0;0Y[5XQaoS[105X serves as gateway within [5XGAP[105X to the [5XQaoS[105X databases of Algebraic Objects
+  in  Berlin.  The  database  frontend  is  able  to output internal data in a
+  [5XGAP[105X-conform  format.  This  [5XGAP[105X  package  both  triggers  the  database  and
+  retrieves  the  data.  Beyond  that, it is also able to retransform received
+  information into [5XGAP[105X objects which then could be used in the `normal way'.[133X
+  
+  [33X[0;0Y[5XQaoS[105X  itself  is  a backend/frontend combination of an SQL database which is
+  designed  to  grant public anonymous access via HTTP for reading operations,
+  and restricted access via HTTP and TCP/IP for writing operations.[133X
+  
+  [33X[0;0YThe  package  functionality  is  partly driven by external utilities. At the
+  moment  we  support  cURL only. cURL is used for network communication, HTTP
+  GET and POST requests and reading results from the network socket, while the
+  [5XGAP[105X part is used for content dependent operations.[133X
+  
+  [33X[0;0YData for Transitive Groups has been taken from the current [5XGAP[105X distribution.
+  We  like  to  thank  Alexander Hulpke for his permission to offer transitive
+  group data in our databases.[133X
+  
+  [30X    [33X[0;6YAlexander Hulpke, Constructing Transitive Permutation Groups; J. Symb.
+        Comp. 39 (2005), 1-30.[133X
+  

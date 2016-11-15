@@ -7,8 +7,8 @@ SetPackageInfo( rec(
 
 PackageName := "qaos",
 Subtitle := "Interfacing the QaoS database from GAP",
-Version := "1.3",
-Date := "11/11/2016",
+Version := "1.4",
+Date := "15/11/2016",
 
 SourceRepository := rec(
                          Type := "git",
@@ -89,8 +89,8 @@ PackageDoc := rec(
   BookName  := "QaoS",
   ArchiveURLSubset := ["doc"],
   HTMLStart := "doc/qaos.html",
-  PDFFile   := "doc/qaos.pdf",
-  SixFile   := "doc/manual.six",
+  PDFFile   := "doc/manual.pdf",
+  SixFile   := "doc/qaos.six",
   LongTitle := "QaoS - Querying Algebraic Objects System",
   Autoload  := true),
 
@@ -103,7 +103,35 @@ Dependencies := rec(
 AvailabilityTest := ReturnTrue,
 Autoload := false,
 TestFile := "tst/testall.g",
-Keywords := ["algebraic structure theory", "database"]
+Keywords := ["algebraic structure theory", "database"],
+
+AutoDoc := rec(
+    TitlePage := rec(
+        Copyright := """
+Copyright &copyright; 2005 Sebastian Freundt and &QaoS; developers.<P/>
+
+Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.<P/>
+
+Permission is granted to copy and distribute modified versions of this
+manual under the conditions for verbatim copying, provided that the entire
+resulting derived work is distributed under the terms of a permission notice
+identical to this one.<P/>
+
+Permission is granted to copy and distribute translations of this manual
+into another language, under the above conditions for modified versions.
+""",
+        TitleComment := """
+This manual documents the &GAP; Interface to &QaoS; databases.  These are
+databases of algebraic objects at the KANT Group Berlin.<P/>
+
+This manual should be considered as introduction for users.
+For more information about &QaoS;, we refer to the manual of &QaoS;.
+""",
+
+    ),
+),
 
 ));
 
