@@ -95,7 +95,7 @@ PackageDoc := rec(
   Autoload  := true),
 
 Dependencies := rec(
-  GAP := ">= 4.3",
+  GAP := ">= 4.8",
   NeededOtherPackages := [],
   SuggestedOtherPackages := [],
   ExternalConditions := ["needs cURL (http://curl.haxx.se)"] ),
