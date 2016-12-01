@@ -88,14 +88,14 @@ AbstractHTML :=
 PackageDoc := rec(
   BookName  := "QaoS",
   ArchiveURLSubset := ["doc"],
-  HTMLStart := "doc/qaos.html",
+  HTMLStart := "doc/chap0.html",
   PDFFile   := "doc/manual.pdf",
   SixFile   := "doc/manual.six",
   LongTitle := "QaoS - Querying Algebraic Objects System",
   Autoload  := true),
 
 Dependencies := rec(
-  GAP := ">= 4.3",
+  GAP := ">= 4.8",
   NeededOtherPackages := [],
   SuggestedOtherPackages := [],
   ExternalConditions := ["needs cURL (http://curl.haxx.se)"] ),
