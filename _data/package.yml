@@ -13,7 +13,7 @@ maintainers:
     - name: Markus Pfeiffer
       url: http://www.morphism.de/~markusp/
 
-GAP: ">= 4.3"
+GAP: ">= 4.8"
 
 www: https://gap-packages.github.io/qaos
 readme: https://gap-packages.github.io/qaos/README
@@ -26,5 +26,5 @@ downloads:
 abstract: The <span class="pkgname">QaoS</span> package provides gateway functions to access the QaoS databases of algebraic objects in Berlin. <span class="pkgname">QaoS</span> is primarily intended to query for transitive groups or algebraic number fields and turn retrieved results into GAP objects for further computing.
 
 status: deposited
-doc-html: doc/qaos.html
+doc-html: doc/chap0.html
 doc-pdf: doc/manual.pdf
