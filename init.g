@@ -7,8 +7,8 @@
 ##
 #R  read .gd files
 ##
-ReadPackage("qaos/gap/helper.gd");
-ReadPackage("qaos/gap/qaos.gd");
+ReadPackage("qaos", "gap/helper.gd");
+ReadPackage("qaos", "gap/qaos.gd");
 
 
 ### init.g ends here

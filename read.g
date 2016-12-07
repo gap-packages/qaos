@@ -15,5 +15,5 @@ fi;
 ##
 #R read files
 ##
-ReadPackage("qaos/gap/helper.gi");
-ReadPackage("qaos/gap/qaos.gi");
+ReadPackage("qaos", "gap/helper.gi");
+ReadPackage("qaos", "gap/qaos.gi");
