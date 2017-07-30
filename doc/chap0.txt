@@ -6,10 +6,10 @@
                     [1X Interfacing the QaoS database from [5XGAP[105X [101X
   
   
-                                      1.4
+                                      1.5
   
   
-                                   15/11/2016
+                                  30 July 2017
   
   
                                Sebastian Freundt
