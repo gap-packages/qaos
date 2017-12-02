@@ -21,7 +21,7 @@ following these instructions.
 
    ```sh
    # Add a new remote pointing to the GitHubPagesForGAP repository
-   git remote add gh-gap https://github.com/fingolfin/GitHubPagesForGAP
+   git remote add gh-gap https://github.com/gap-system/GitHubPagesForGAP
    git fetch gh-gap
 
    # Create a fresh gh-pages branch from the new remote
@@ -41,7 +41,7 @@ following these instructions.
    cd gh-pages
 
    # Add a new remote pointing to the GitHubPagesForGAP repository
-   git remote add gh-gap https://github.com/fingolfin/GitHubPagesForGAP
+   git remote add gh-gap https://github.com/gap-system/GitHubPagesForGAP
    git fetch gh-gap
 
    # Create a fresh gh-pages branch from the new remote
@@ -157,30 +157,41 @@ much you tweaked the site after initially cloning GitHubPagesForGAP.
    Make sure that there are no uncommitted changes, as they will be lost
    when following these instructions.
 
-2. Fetch changes made to GitHubPagesForGAP.
+2. Make sure the `gh-gap` remote exists and has the correct URL. If in doubt,
+   just re-add it:
    ```
-   git fetch gh-gap
+   git remote remove gh-gap
+   git remote add gh-gap https://github.com/gap-system/GitHubPagesForGAP
    ```
 
-3. Attempt to merge these changes. This may produce multiple merge conflicts,
-   so ideally, you should be familiar with dealing with such merge conflicts.
+3. Attempt to merge the latest GitHubPagesForGAP.
    ```
    git pull gh-gap gh-pages
    ```
-   If at any point you don't know how to continue, you can abort the merge
-   process and revert to the original state by issuing this command:
+
+4. If this produced no errors and just worked, skip to the next step.
+   But it is quite likely that you will have conflicts in the file
+   `_data/package.yml`, or in your `README` or `PackageInfo.g` files.
+   These can usually be resolved by entering this:
+   ```
+   cp ../PackageInfo.g ../README* .
+   gap update.g
+   git add PackageInfo.g README* _data/package.yml
+   ```
+   If you are lucky, these were the only conflicts (check with `git status`).
+   If no merge conflicts remain, finish with this command:
+   ```
+   git commit -m "Merge gh-gap/gh-pages"
+   ```
+   If you still have merge conflicts, and don't know how to resolve them, or
+   get stuck some other way, you can abort the merge process and revert to the
+   original state by issuing this command:
    ```
    git merge --abort
    ```
 
-4. This may produce merge conflicts. Most likely you will have conflicts in
-   the file `_data/package.yml`, but these are easy to resolve as follows:
-   ```
-   gap update.g
-   git add _data/package.yml
-   ```
-   If you are lucky, this is the only conflict (check with `git status`).
-
+5. You should be done now. Don't forget to push your changes if you want them
+   to become public.
 
 
 ## Packages using GitHubPagesForGAP
@@ -202,10 +213,10 @@ Packages using GitHubPagesForGAP include the following:
 ## Contact
 
 Please submit bug reports, suggestions for improvements and patches via
-the [issue tracker](https://github.com/fingolfin/GitHubPagesForGAP/issues).
+the [issue tracker](https://github.com/gap-system/GitHubPagesForGAP/issues).
 
 You can also contact me directly via [email](max@quendi.de).
 
 Copyright (c) 2013-2016 Max Horn
 
-[ReleaseTools]: https://github.com/fingolfin/ReleaseTools
+[ReleaseTools]: https://github.com/gap-system/ReleaseTools
