@@ -330,10 +330,10 @@ InstallGlobalFunction( QaosTransitiveGroup,
         "Searches the Algebraic Objects Database in Berlin.\n",
         "The query string equals the keyword search method in the web surface.\n",
         "See `",_QaosBase,Assoc(_QaosModules,"query"),
-        "?type=trnsg&action=",Assoc(_QaosQueryActions,"help"),"' ",
+        "?type=trnsg&action=",Assoc(_QaosQueryActions,"help"),"'\n",
         "for more information about the syntax and keywords.\n\n",
 
-        "Note: You must have `curl' (see http://curl.haxx.se) installed and ",
+        "Note: You must have `curl' (see http://curl.haxx.se) installed and\n",
         "properly configured in order to use QaoS from within GAP.\n\n");
       return TRUE;
     elif Length(arg)=1 then
@@ -425,10 +425,10 @@ InstallGlobalFunction( QaosNumberField,
         "Searches the Algebraic Objects Database in Berlin.\n",
         "The query string equals the keyword search method in the web surface.\n",
         "See `",_QaosBase,Assoc(_QaosModules,"query"),
-        "?type=anf&action=",Assoc(_QaosQueryActions,"help"),"' ",
+        "?type=anf&action=",Assoc(_QaosQueryActions,"help"),"'\n",
         "for more information about the syntax and keywords.\n\n",
 
-        "Note: You must have `curl' (see http://curl.haxx.se) installed and ",
+        "Note: You must have `curl' (see http://curl.haxx.se) installed and\n",
         "properly configured in order to use QaoS from within GAP.\n\n");
       return TRUE;
     elif Length(arg)=1 then
