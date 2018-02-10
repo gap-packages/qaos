@@ -102,7 +102,7 @@ Dependencies := rec(
 
 AvailabilityTest := ReturnTrue,
 Autoload := false,
-TestFile := "tst/testall.g",
+TestFile := "tst/offline.tst",
 Keywords := ["algebraic structure theory", "database"],
 
 AutoDoc := rec(
