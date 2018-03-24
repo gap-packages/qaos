@@ -1,5 +1,5 @@
 
-The GAP 4 package `qaos-gap'
+The GAP 4 package `qaos'
 ============================
 
 Prerequisites
@@ -13,11 +13,7 @@ Installing this package
 
 This latest version of this package is available at 
 
-      http://www.math.tu-berlin.de/~kant/download/gap/qaos.tar.bz2
-
-or fetch it via FTP at
-
-      ftp://ftp.math.tu-berlin.de/pub/algebra/Kant/contrib/gap/
+      http://gap-packages.github.io/qaos/
 
 
 There are two ways of installing the package.  If you have permission
