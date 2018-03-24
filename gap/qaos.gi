@@ -388,7 +388,7 @@ InstallGlobalFunction( QaosTransitiveGroup,
         SetGeneratorsOfMagmaWithInverses(l,AsList(QRl.perm_gens));
         if QRl.deg<9 then
           ## GAP dies otherwise
-          SetAsSSortedList(l,Elements(Group(AsList(QRl.perm_gens))));
+          SetAsSSortedList(l,AsSet(Group(AsList(QRl.perm_gens))));
         fi;
       od;
     fi;
