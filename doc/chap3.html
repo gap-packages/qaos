@@ -51,7 +51,7 @@
 
 <h5>3.1-1 QaosTransitiveGroup</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QaosTransitiveGroup</code>( <var class="Arg">query</var>[, <var class="Arg">optarg</var>] )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QaosTransitiveGroup</code>( <var class="Arg">query</var>[, <var class="Arg">optarg</var>] )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Return transitive groups matching <var class="Arg">query</var>. The amount of results is limited by the global variable <code class="func">QaosDefaultLimit</code> (<a href="chap3.html#X82D1C36A858682A5"><span class="RefLink">3.1-3</span></a>). Optional argument <var class="Arg">optarg</var> is a record with some of the following components:</p>
 
 
@@ -121,7 +121,7 @@
 
 <h5>3.1-2 QaosNumberField</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QaosNumberField</code>( <var class="Arg">query</var>[, <var class="Arg">optarg</var>] )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QaosNumberField</code>( <var class="Arg">query</var>[, <var class="Arg">optarg</var>] )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Return number fields matching <var class="Arg">query</var>. The amount of results is limited by the global variable <code class="func">QaosDefaultLimit</code> (<a href="chap3.html#X82D1C36A858682A5"><span class="RefLink">3.1-3</span></a>). Optional argument <var class="Arg">optarg</var> is a record with some of the following components:</p>
 
 
@@ -191,7 +191,7 @@
 
 <h5>3.1-3 QaosDefaultLimit</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QaosDefaultLimit</code></td><td class="tdright">( global variable )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QaosDefaultLimit</code></td><td class="tdright">(&nbsp;global variable&nbsp;)</td></tr></table></div>
 <p>An Integer or String. Determine the (maximal) amount of results returned in a query. Usually, this can be overridden with the <code class="code">Limit</code>-component in optargs. The default value is 25. The value can be any positive integer or the string "all", in which case no limit is set and all results are returned. <em>CAUTION</em>: Setting this variable to "all" may result in exhaustive use of memory, network bandwidth, and time. Therefore, always consider to perform the count action on a query before loading all of the results. The database of number fields contains more than 1.35 million number field objects. Downloading them all means retrieving a string of approx. 1.8 GB length!!!</p>
 
 <p>The following examples show their usage: Query for transitive groups of degree 4.</p>
@@ -301,14 +301,14 @@ true
 
 <h5>3.2-1 QaosResult</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QaosResult</code>( <var class="Arg">database-collection</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QaosResult</code>( <var class="Arg">database-collection</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Return the list of retrieved objects in <var class="Arg">database-collection</var>. This function actually reveals the result of a query.</p>
 
 <p><a id="X831604EA7D31B9A8" name="X831604EA7D31B9A8"></a></p>
 
 <h5>3.2-2 QaosResult</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QaosResult</code>( <var class="Arg">database-count</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; QaosResult</code>( <var class="Arg">database-count</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Return the (non-negative) integer of a count query (see <code class="code">Action</code>-component in optarg record).</p>
 
 <p>Let us examine the groups behind a query for degree 8 abelian transitive groups.</p>
@@ -337,7 +337,7 @@ gap&gt;
 
 <h5>3.2-3 AsGroup</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AsGroup</code>( <var class="Arg">database-group-object</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AsGroup</code>( <var class="Arg">database-group-object</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Return the <strong class="pkg">GAP</strong> group object representing <var class="Arg">database-group-object</var>. If <var class="Arg">database-group-object</var> cannot be turned into a group, return <code class="keyw">fail</code>.</p>
 
 <p>From the above example, let us <strong class="pkg">GAP</strong>-ify the third group object.</p>
@@ -356,7 +356,7 @@ Group([ (1,8)(2,3)(4,5)(6,7), (1,3)(2,8)(4,6)(5,7), (1,5)(2,6)(3,7)(4,8) ])
 
 <h5>3.2-4 AsField</h5>
 
-<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AsField</code>( <var class="Arg">database-field-object</var> )</td><td class="tdright">( function )</td></tr></table></div>
+<div class="func"><table class="func" width="100%"><tr><td class="tdleft"><code class="func">&#8227; AsField</code>( <var class="Arg">database-field-object</var> )</td><td class="tdright">(&nbsp;function&nbsp;)</td></tr></table></div>
 <p>Return the <strong class="pkg">GAP</strong> field object representing <var class="Arg">database-field-object</var>. If <var class="Arg">database-field-object</var> cannot be turned into a field, return <code class="keyw">fail</code>.</p>
 
 <p>Consider following example for number fields (number fields of degree 5 with absolute discrimnant between 100000 and 120000 and non-trivial class group):</p>

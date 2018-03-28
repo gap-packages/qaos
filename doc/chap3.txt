@@ -11,7 +11,7 @@
   
   [1X3.1-1 QaosTransitiveGroup[101X
   
-  [29X[2XQaosTransitiveGroup[102X( [3Xquery[103X[, [3Xoptarg[103X] ) [32X function
+  [33X[1;0Y[29X[2XQaosTransitiveGroup[102X( [3Xquery[103X[, [3Xoptarg[103X] ) [32X function[133X
   
   [33X[0;0YReturn transitive groups matching [3Xquery[103X. The amount of results is limited by
   the  global variable [2XQaosDefaultLimit[102X ([14X3.1-3[114X). Optional argument [3Xoptarg[103X is a
@@ -56,7 +56,7 @@
   
   [1X3.1-2 QaosNumberField[101X
   
-  [29X[2XQaosNumberField[102X( [3Xquery[103X[, [3Xoptarg[103X] ) [32X function
+  [33X[1;0Y[29X[2XQaosNumberField[102X( [3Xquery[103X[, [3Xoptarg[103X] ) [32X function[133X
   
   [33X[0;0YReturn number fields matching [3Xquery[103X. The amount of results is limited by the
   global  variable  [2XQaosDefaultLimit[102X  ([14X3.1-3[114X).  Optional  argument [3Xoptarg[103X is a
@@ -101,7 +101,7 @@
   
   [1X3.1-3 QaosDefaultLimit[101X
   
-  [29X[2XQaosDefaultLimit[102X[32X global variable
+  [33X[1;0Y[29X[2XQaosDefaultLimit[102X[32X global variable[133X
   
   [33X[0;0YAn  Integer or String. Determine the (maximal) amount of results returned in
   a  query.  Usually,  this  can  be  overridden  with  the [10XLimit[110X-component in
@@ -216,14 +216,14 @@
   
   [1X3.2-1 QaosResult[101X
   
-  [29X[2XQaosResult[102X( [3Xdatabase-collection[103X ) [32X function
+  [33X[1;0Y[29X[2XQaosResult[102X( [3Xdatabase-collection[103X ) [32X function[133X
   
   [33X[0;0YReturn  the  list of retrieved objects in [3Xdatabase-collection[103X. This function
   actually reveals the result of a query.[133X
   
   [1X3.2-2 QaosResult[101X
   
-  [29X[2XQaosResult[102X( [3Xdatabase-count[103X ) [32X function
+  [33X[1;0Y[29X[2XQaosResult[102X( [3Xdatabase-count[103X ) [32X function[133X
   
   [33X[0;0YReturn  the (non-negative) integer of a count query (see [10XAction[110X-component in
   optarg record).[133X
@@ -253,7 +253,7 @@
   
   [1X3.2-3 AsGroup[101X
   
-  [29X[2XAsGroup[102X( [3Xdatabase-group-object[103X ) [32X function
+  [33X[1;0Y[29X[2XAsGroup[102X( [3Xdatabase-group-object[103X ) [32X function[133X
   
   [33X[0;0YReturn   the   [5XGAP[105X   group  object  representing  [3Xdatabase-group-object[103X.  If
   [3Xdatabase-group-object[103X cannot be turned into a group, return [9Xfail[109X.[133X
@@ -271,7 +271,7 @@
   
   [1X3.2-4 AsField[101X
   
-  [29X[2XAsField[102X( [3Xdatabase-field-object[103X ) [32X function
+  [33X[1;0Y[29X[2XAsField[102X( [3Xdatabase-field-object[103X ) [32X function[133X
   
   [33X[0;0YReturn   the   [5XGAP[105X   field  object  representing  [3Xdatabase-field-object[103X.  If
   [3Xdatabase-field-object[103X cannot be turned into a field, return [9Xfail[109X.[133X

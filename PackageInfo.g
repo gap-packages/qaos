@@ -7,8 +7,8 @@ SetPackageInfo( rec(
 
 PackageName := "qaos",
 Subtitle := "Interfacing the QaoS database from GAP",
-Version := "1.5",
-Date := "30/07/2017",
+Version := "1.6",
+Date := "28/03/2018",
 
 SourceRepository := rec(
                          Type := "git",
@@ -56,20 +56,11 @@ Persons := [
       Place         := "Berlin",
       Institution   := "TU Berlin"),
   rec(
-       IsAuthor := false,
-       IsMaintainer := true,
-       FirstNames := "Markus",
-       LastName := "Pfeiffer",
-       WWWHome := "http://www.morphism.de/~markusp/",
-       Email := "markus.pfeiffer@st-andrews.ac.uk",
-       PostalAddress := Concatenation( [
-                                         "School of Computer Science\n",
-                                         "North HaughSt Andrews\n",
-                                         "Fife\n",
-                                         "KY16 9SX\n",
-                                         "United Kingdom" ] ),
-       Place := "St Andrews",
-       Institution := "University of St Andrews",
+      LastName      := "GAP Team",
+      FirstNames    := "The",
+      IsAuthor      := false,
+      IsMaintainer  := true,
+      Email         := "support@gap-system.org",
   ),
 ],
 
@@ -102,7 +93,7 @@ Dependencies := rec(
 
 AvailabilityTest := ReturnTrue,
 Autoload := false,
-TestFile := "tst/testall.g",
+TestFile := "tst/offline.tst",
 Keywords := ["algebraic structure theory", "database"],
 
 AutoDoc := rec(
