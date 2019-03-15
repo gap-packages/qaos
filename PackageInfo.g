@@ -8,7 +8,8 @@ SetPackageInfo( rec(
 PackageName := "qaos",
 Subtitle := "Interfacing the QaoS database from GAP",
 Version := "1.6",
-Date := "28/03/2018",
+Date := "28/03/2018", # dd/mm/yyyy format
+License := "GPL-2.0-or-later",
 
 SourceRepository := rec(
                          Type := "git",
