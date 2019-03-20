@@ -21,15 +21,6 @@ Assoc:=
     return First(lis,i->i[1]=key)[2];
   end;
 
-Butlast:=
-  lis->lis{[1..Size(lis)-1]};
-Last:=
-  lis->lis[Size(lis)];
-
-TRUE:=true;
-FALSE:=false;
-FAILURE:=fail;
-
 _GetEntry_rec_string:=
   function(arg)
     local record,field,optarg,Fail;
@@ -49,7 +40,7 @@ _GetEntry_rec_string:=
     if "Fail" in RecNames(optarg) then
       Fail := optarg.("Fail");
     else
-      Fail := FAILURE;
+      Fail := fail;
     fi;
 
     if field in RecNames(record) then

@@ -335,7 +335,7 @@ InstallGlobalFunction( QaosTransitiveGroup,
 
         "Note: You must have `curl' (see http://curl.haxx.se) installed and\n",
         "properly configured in order to use QaoS from within GAP.\n\n");
-      return TRUE;
+      return true;
     elif Length(arg)=1 then
       if IsString(arg[1]) then
         query := arg[1];
@@ -430,7 +430,7 @@ InstallGlobalFunction( QaosNumberField,
 
         "Note: You must have `curl' (see http://curl.haxx.se) installed and\n",
         "properly configured in order to use QaoS from within GAP.\n\n");
-      return TRUE;
+      return true;
     elif Length(arg)=1 then
       if IsString(arg[1]) then
         query := arg[1];
