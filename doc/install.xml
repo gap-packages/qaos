@@ -73,7 +73,7 @@ Finally, you can test for a successful curl installation by
 
 <Example>
 <![CDATA[
-shell> curl http://curl.haxx.se
+shell> curl https://curl.se
 ]]>
 </Example>
 

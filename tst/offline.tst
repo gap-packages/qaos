@@ -11,7 +11,7 @@ The query string equals the keyword search method in the web surface.
 See `http://qaos.math.tu-berlin.de/qaos/query.scm?type=trnsg&action=Help'
 for more information about the syntax and keywords.
 
-Note: You must have `curl' (see http://curl.haxx.se) installed and
+Note: You must have `curl' (see https://curl.se) installed and
 properly configured in order to use QaoS from within GAP.
 
 true
@@ -23,7 +23,7 @@ The query string equals the keyword search method in the web surface.
 See `http://qaos.math.tu-berlin.de/qaos/query.scm?type=anf&action=Help'
 for more information about the syntax and keywords.
 
-Note: You must have `curl' (see http://curl.haxx.se) installed and
+Note: You must have `curl' (see https://curl.se) installed and
 properly configured in order to use QaoS from within GAP.
 
 true

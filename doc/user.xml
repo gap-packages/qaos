@@ -205,7 +205,7 @@ See
 <URL>http://qaos.math.tu-berlin.de/qaos/query.scm?type=trnsg&action=Help</URL>
 for more information about the syntax and keywords.
  
-Note: You must have `curl' (see <URL>http://curl.haxx.se</URL>) installed and properly
+Note: You must have `curl' (see <URL>https://curl.se</URL>) installed and properly
 configured in order to use &QaoS; from within &GAP;.
  
 true

@@ -111,7 +111,7 @@ InstallGlobalFunction( Mapconcat,
 
 
 ## cURL is a must at the moment.
-## fetch it at http://curl.haxx.se/
+## fetch it at https://curl.se/
 InstallGlobalFunction( Curl,
   function(uri)
     local path, curl, str, a;

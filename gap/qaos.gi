@@ -333,7 +333,7 @@ InstallGlobalFunction( QaosTransitiveGroup,
         "?type=trnsg&action=",Assoc(_QaosQueryActions,"help"),"'\n",
         "for more information about the syntax and keywords.\n\n",
 
-        "Note: You must have `curl' (see http://curl.haxx.se) installed and\n",
+        "Note: You must have `curl' (see https://curl.se) installed and\n",
         "properly configured in order to use QaoS from within GAP.\n\n");
       return true;
     elif Length(arg)=1 then
@@ -428,7 +428,7 @@ InstallGlobalFunction( QaosNumberField,
         "?type=anf&action=",Assoc(_QaosQueryActions,"help"),"'\n",
         "for more information about the syntax and keywords.\n\n",
 
-        "Note: You must have `curl' (see http://curl.haxx.se) installed and\n",
+        "Note: You must have `curl' (see https://curl.se) installed and\n",
         "properly configured in order to use QaoS from within GAP.\n\n");
       return true;
     elif Length(arg)=1 then
