@@ -1,5 +1,5 @@
 name: qaos
-version: 1.6
+version: "1.6"
 date: 2018-03-28
 description: |
     Interfacing the QaoS database from GAP
@@ -30,3 +30,31 @@ abstract: |
 status: deposited
 doc-html: doc/chap0.html
 doc-pdf: doc/manual.pdf
+keywords: |
+    algebraic structure theory, database.
+citeas: |
+    <p class='BibEntry'>
+    [<span class='BibKey'>FPT18</span>]   <b class='BibAuthor'>Freundt, S., Pauli, S. and GAP Team, T.</b>,
+     <i class='BibTitle'>qaos, Interfacing the QaoS database from GAP,
+             Version 1.6</i>
+     (<span class='BibYear'>2018</span>)<br />
+    (<span class='BibNote'>GAP package</span>),
+    <span class='BibHowpublished'><a href="https://gap-packages.github.io/qaos">https://gap-packages.github.io/qaos</a></span>.
+    </p>
+    
+
+bibtex: |
+    @misc{ qaos1.6,
+      author =           {Freundt, S. and Pauli, S. and GAP Team, T.},
+      title =            {{qaos},   Interfacing  the  QaoS  database  from  GAP,
+                          {V}ersion 1.6},
+      month =            {Mar},
+      year =             {2018},
+      note =             {GAP package},
+      howpublished =     {\href            {https://gap-packages.github.io/qaos}
+                          {\texttt{https://gap-packages.github.io/}\discretionary
+                          {}{}{}\texttt{qaos}}},
+      keywords =         {algebraic structure theory; database},
+      printedkey =       {FPT18}
+    }
+
