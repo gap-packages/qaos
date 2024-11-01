@@ -84,7 +84,7 @@ PackageDoc := rec(
   PDFFile   := "doc/manual.pdf",
   SixFile   := "doc/manual.six",
   LongTitle := "QaoS - Querying Algebraic Objects System",
-  Autoload  := true),
+),
 
 Dependencies := rec(
   GAP := ">= 4.8",
@@ -93,7 +93,6 @@ Dependencies := rec(
   ExternalConditions := ["needs cURL (https://curl.se)"] ),
 
 AvailabilityTest := ReturnTrue,
-Autoload := false,
 TestFile := "tst/offline.tst",
 Keywords := ["algebraic structure theory", "database"],
 
