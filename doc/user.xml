@@ -233,7 +233,7 @@ This function actually reveals the result of a query.
 </ManSection>
 
 <ManSection>
-<Func Name="QaosResult" Arg=" database-count"/>
+<Func Name="QaosResult" Arg=" database-count" Label="QaosResultCount"/>
 <Description>
 Return the (non-negative) integer of a count query (see <C>Action</C>-component
 in optarg record). 
