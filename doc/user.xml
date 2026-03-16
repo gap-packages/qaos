@@ -129,8 +129,7 @@ all means retrieving a string of approx. 1.8 GB length!!!
 The following examples show their usage:
 
 Query for transitive groups of degree 4.
-<Example>
-<![CDATA[
+<Example><![CDATA[
 gap> QaosTransitiveGroup("d4");
 #I Retrieved 5 Transitive Groups.
 #I (C) 2004-2005 QaoS developers <kantdb@math.tu-berlin.de>,
@@ -138,24 +137,20 @@ gap> QaosTransitiveGroup("d4");
 #I qaos--dev--1.0--patch-32
 #I 2005-08-29 07:54:18 UTC
 <collection from database: 5 transitive groups; "d4">
-]]>
-</Example>
+]]></Example>
 
 Count transitive groups of degree 8.
-<Example>
-<![CDATA[
+<Example><![CDATA[
 gap> QaosTransitiveGroup("d8",rec(Action:="count"));
 #I (C) 2004-2005 QaoS developers <kantdb@math.tu-berlin.de>,
 #I The Kant Project <kant@math.tu-berlin.de>
 #I qaos--dev--1.0--patch-33
 #I 2005-08-29 10:04:49 UTC
 50 transitive group satisfy "d8"
-]]>
-</Example>
+]]></Example>
 
 Retrieve the first 25 transitive groups of degree 8.
-<Example>
-<![CDATA[
+<Example><![CDATA[
 gap> q1:=QaosTransitiveGroup("d8");
 #I Retrieved 25 Transitive Groups.
 #I (C) 2004-2005 QaoS developers <kantdb@math.tu-berlin.de>,
@@ -163,12 +158,10 @@ gap> q1:=QaosTransitiveGroup("d8");
 #I qaos--dev--1.0--patch-33
 #I 2005-08-29 10:08:50 UTC
 <collection from database: 25 transitive groups; "d8">
-]]>
-</Example>
+]]></Example>
 
 Now retrieve the next 25 results.
-<Example>
-<![CDATA[
+<Example><![CDATA[
 gap> q2:=QaosTransitiveGroup("d8",rec(Offset:=25));
 #I Retrieved 25 Transitive Groups.
 #I (C) 2004-2005 QaoS developers <kantdb@math.tu-berlin.de>,
@@ -176,12 +169,10 @@ gap> q2:=QaosTransitiveGroup("d8",rec(Offset:=25));
 #I qaos--dev--1.0--patch-33
 #I 2005-08-29 10:09:41 UTC
 <collection from database: 25 transitive groups; "d8">
-]]>
-</Example>
+]]></Example>
 
 Retrieve number fields of degree 4.
-<Example>
-<![CDATA[
+<Example><![CDATA[
 gap> QaosNumberField("d4");
 #I Retrieved 25 Algebraic Number Fields.
 #I (C) 2004-2005 QaoS developers <kantdb@math.tu-berlin.de>,
@@ -189,13 +180,11 @@ gap> QaosNumberField("d4");
 #I qaos--dev--1.0--patch-32
 #I 2005-08-29 07:55:11 UTC
 <collection from database: 25 number fields; "d4">
-]]>
-</Example>
+]]></Example>
 
 When either of these functions is called with no arguments a short general help
 is displayed:
-<Example>
-<![CDATA[
+<Example><![CDATA[
 gap> QaosTransitiveGroup();
 QaosTransitiveGroup(<query> [, <optarg>]) -> <result>
  
@@ -209,8 +198,7 @@ Note: You must have `curl' (see <URL>https://curl.se</URL>) installed and proper
 configured in order to use &QaoS; from within &GAP;.
  
 true
-]]>
-</Example>
+]]></Example>
 
 In this manual we also refer to the help screen of the web interface to obtain
 more detailed information about the query string.
@@ -242,8 +230,7 @@ in optarg record).
 
 
 Let us examine the groups behind a query for degree 8 abelian transitive groups.
-<Example>
-<![CDATA[
+<Example><![CDATA[
 gap> Q:=QaosTransitiveGroup("d8 abelian");
 #I Retrieved 3 Transitive Groups.
 #I (C) 2004-2005 QaoS developers <kantdb@math.tu-berlin.de>,
@@ -256,8 +243,7 @@ gap> QaosResult(Q);
 [ <transitive group from database: C(8) = 8; id 39>,
   <transitive group from database: 4[x]2; id 40>,
   <transitive group from database: E(8) = 2[x]2[x]2; id 41> ]
-]]>
-</Example>
+]]></Example>
 
 To use the retrieved group objects in &GAP; you may use the <Ref Func="AsGroup" Style="Text"/>
 operation on a result.
@@ -272,12 +258,10 @@ If <A>database-group-object</A> cannot be turned into a group, return <K>fail</K
 </ManSection>
 
 From the above example, let us &GAP;-ify the third group object.
-<Example>
-<![CDATA[
+<Example><![CDATA[
 gap> AsGroup(QaosResult(Q)[3]);
 Group([ (1,8)(2,3)(4,5)(6,7), (1,3)(2,8)(4,6)(5,7), (1,5)(2,6)(3,7)(4,8) ])
-]]>
-</Example>
+]]></Example>
 
 
 For number field objects the corresponding operation is <Ref Func="AsField" Style="Text"/>.
@@ -294,8 +278,7 @@ If <A>database-field-object</A> cannot be turned into a field, return
 
 Consider following example for number fields (number fields of degree 5 with
 absolute discrimnant between 100000 and 120000 and non-trivial class group):
-<Example>
-<![CDATA[
+<Example><![CDATA[
 gap> R:=QaosNumberField("d5 |disc| >=100000 |disc| <=120000 cn>1");
 #I Retrieved 18 Algebraic Number Fields.
 #I (C) 2004-2005 QaoS developers <kantdb@math.tu-berlin.de>,
@@ -324,8 +307,7 @@ gap> QaosResult(R);
   <number field from database: x_1^5+2*x_1^4-6*x_1^3+5*x_1^2-2*x_1+1; id 844145> ]
 gap> AsField(QaosResult(R)[4]);
 <field in characteristic 0>
-]]>
-</Example>
+]]></Example>
 
 
 </Section>
